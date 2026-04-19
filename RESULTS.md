@@ -35,26 +35,179 @@ The router is trained via **knowledge distillation**: a large 7-billion-paramete
 
 ---
 
-## Building the Dataset
+## Curating the Dataset
 
-We assembled training data from six established social reasoning benchmarks:
+No single dataset captures the full spectrum of social reasoning. We assembled ours from **six established benchmarks**, spanning both Theory of Mind and non-ToM social reasoning. Building this dataset — and then discovering and fixing its hidden flaws — turned out to be the most important part of the project.
 
-| Dataset | What it tests | Samples | Label |
-|---------|--------------|---------|-------|
-| SimpleToM | False belief stories | 3,441 | Requires ToM |
-| ToMBench + Hi-ToM | Broad ToM tasks (faux pas, strange stories, etc.) | 4,058 | Requires ToM |
-| ToMi-NLI | Sally-Anne style belief tracking | 17,982 | Requires ToM |
-| KokoMind | Social dialogues (mixed categories) | 770 | Mixed |
-| SocialIQA | Social commonsense Q&A | 34,934 | No ToM needed |
-| CICERO | Commonsense inference in dialogues | 22,731 | No ToM needed |
+### Step 1: Sourcing and Unifying Six Datasets
 
-After merging, deduplicating, and balancing: **7,966 samples** (50/50 split), divided into train (6,374), validation (800), and test (792).
+Each source dataset has a different format, schema, and focus. We normalized all of them into one unified representation: a `(context, question, answer, requires_tom)` tuple.
+
+#### ToM-positive sources (questions that require reasoning about hidden mental states)
+
+**SimpleToM** (3,441 samples) — Short stories where a character is unaware of a critical fact. Three question types test whether a model can apply that gap in knowledge:
+> **Context:** *"The bag of potato chips has moldy chips in it. Mary picks up the bag in the supermarket and walks to the cashier."*
+> **Question:** *"Is Mary likely to be aware that the bag of potato chips has moldy chips in it?"*
+
+Mary doesn't know — you need to model her ignorance to answer correctly.
+
+**ToMBench + Hi-ToM** (4,058 samples) — An aggregation of classic ToM test batteries: false belief tasks (600), faux pas recognition (560), strange stories (407), unexpected outcomes (300), hidden emotions (80), higher-order belief reasoning (1,200), and more. This is the broadest single collection of ToM evaluation items.
+
+**ToMi-NLI** (17,982 samples) — Sally-Anne style belief tracking recast as natural language inference. Stories describe agents moving objects while other agents are absent, then test whether a belief statement follows:
+> **Context:** *"Isla entered the porch. The cucumber is in the red bathtub. Isla moved the cucumber to the red bottle. Chloe exited the porch."*
+> **Question:** *"Does this follow? Chloe will look for the cucumber in the red bathtub."*
+
+#### Non-ToM sources (questions answerable without hidden mental state reasoning)
+
+**SocialIQA** (34,934 samples) — Commonsense questions about social situations — motivations, emotional reactions, likely next actions — that can be answered from general social knowledge:
+> **Context:** *"Casey was heading to the coffee shop before work. Casey bought Bailey a drink while there."*
+> **Question:** *"How would Casey feel afterwards?"*
+
+No hidden beliefs or false beliefs are involved. The answer follows from common sense about buying gifts.
+
+**CICERO** (22,731 samples) — Commonsense inference grounded in dialogue — causes, prerequisites, motivations, and emotional reactions extracted from conversations:
+> **Context:** *"A: I was wondering whether you could ship the tennis racket overseas to Taiwan. B: I'm sorry, we don't ship overseas."*
+> **Question:** *"What is the prerequisite of the target statement?"*
+
+**KokoMind** (770 samples) — The only dataset with **both labels from the same source**. Each social interaction dialogue has questions spanning six categories: Theory of Mind (395), Emotion Recognition (81), Social Norms (64), Social Relations (84), Counterfactual reasoning (71), and Social Advice (75). We mapped ToM → requires ToM, everything else → does not require ToM.
+
+#### The unification process
+
+Every sample, regardless of source, was converted into the same schema:
+
+```json
+{
+  "sample_id": "simpletom_potato_chip_food_sev1_action",
+  "source_dataset": "simpletom",
+  "context": "The bag of potato chips has moldy chips in it...",
+  "question": "What will Mary likely do next?",
+  "answer": "pay for the chips",
+  "requires_tom": 1,
+  "subtype": "belief",
+  "original_category": "behavior-qa"
+}
+```
+
+Key normalization steps:
+- **KokoMind**: The `text` field combines context and question in one string separated by `**Briefly answer these question**:`. We split these apart and removed the `Read the following context:` prefix.
+- **ToMi-NLI**: The `premise` became the context; the `hypothesis` was wrapped into a question: *"Does this follow? {hypothesis}"*
+- **SocialIQA**: The correct answer was resolved from the label index (`1`/`2`/`3` mapping to `answerA`/`B`/`C`).
+- **CICERO**: Dialogue turns stored as lists were joined into readable text. Correct answers were resolved from index arrays.
+- **All sources**: Unicode normalization, whitespace collapsing, quote standardization, and trailing artifact removal.
+
+### Step 2: Merging and Balancing
+
+From a combined pool of 83,916 samples (25,876 ToM / 58,040 non-ToM), we subsampled to **4,000 per class** using proportional sampling — each source dataset contributed proportionally to its original representation within each class. This preserves source diversity rather than letting the largest datasets dominate.
+
+| Source | ToM samples | Non-ToM samples | Total |
+|--------|------------|----------------|-------|
+| tomi_nli | 2,769 | — | 2,769 |
+| social_iqa | — | 2,398 | 2,398 |
+| cicero | — | 1,560 | 1,560 |
+| theory_of_mind | 623 | — | 623 |
+| simpletom | 530 | — | 530 |
+| kokomind | 61 | 25 | 86 |
+| **Total** | **3,983** | **3,983** | **7,966** |
+
+### Step 3: Anti-Leakage Splitting
+
+A naive random split would allow the same story to appear in both training and test sets — the model could memorize stories rather than learn reasoning patterns. We prevented this with **context-hash grouping**: every sample's context was hashed, and all samples sharing the same context hash were assigned to the same split. The split was stratified by label to maintain balance.
+
+| Split | ToM | Non-ToM | Total |
+|-------|-----|---------|-------|
+| Train | 3,187 | 3,187 | 6,374 |
+| Validation | 400 | 400 | 800 |
+| Test | 396 | 396 | 792 |
+
+We verified **zero context overlap** between train, validation, and test sets.
+
+### Step 4: Discovering the Shortcut
+
+Before training any neural model, we ran the sanity checks recommended in our implementation plan — and found a critical flaw.
+
+A logistic regression trained on **only the dataset name** as input (a single integer feature) achieved **99.75% accuracy**. The reason was clear from the label-source table above: ToM samples come exclusively from SimpleToM, theory_of_mind, and tomi_nli, while non-ToM samples come exclusively from social_iqa and cicero. Each dataset has its own writing style, vocabulary, and formatting. A model can learn to distinguish these styles trivially — without ever understanding Theory of Mind.
+
+We also checked other potential shortcuts:
+
+| Shortcut | Accuracy | Verdict |
+|----------|----------|---------|
+| Source dataset name only | 99.75% | **Fatal shortcut** |
+| Bag-of-words (word frequencies) | 99.24% | **Strong shortcut** (vocabulary differs across sources) |
+| Context length only | 52.78% | Not a shortcut |
+| Question length only | — | Not a shortcut (ToM: avg 79 chars, non-ToM: avg 41 chars — correlated but not separable) |
+
+### Step 5: Contrastive Augmentation
+
+To break the source shortcut, we needed both labels to appear within the same writing style. We used **OLMo-3-7B-Instruct** to generate contrastive questions — for each story context, an opposite-label question about that same context.
+
+**ToM story → generated non-ToM question:**
+
+| | |
+|---|---|
+| **Context** | *Isla entered the porch. The cucumber is in the red bathtub. Isla moved the cucumber to the red bottle. Chloe exited the porch.* |
+| **Original question (ToM)** | *Where does Chloe think the cucumber is?* |
+| **Generated question (non-ToM)** | *Where was the cucumber after Isla moved it?* |
+
+The original question requires modeling Chloe's false belief (she left before Isla moved the cucumber). The generated question is purely factual — the cucumber is in the red bottle, observable to anyone.
+
+**Non-ToM story → generated ToM question:**
+
+| | |
+|---|---|
+| **Context** | *"A: I was wondering whether you could ship the tennis racket overseas. B: I'm sorry, we don't ship overseas."* |
+| **Original question (non-ToM)** | *What is the prerequisite of the target statement?* |
+| **Generated question (ToM)** | *What does speaker A likely believe about the store's shipping policy before asking the question?* |
+
+The original is a factual commonsense question. The generated question requires reasoning about A's (incorrect) belief that overseas shipping might be possible.
+
+We generated contrastive questions for 3,000 samples (1,500 per class), achieving a **97.4% success rate** (2,922 valid pairs). The generation took approximately 50 minutes on a single GPU.
+
+### Step 6: Style Normalization (Partial)
+
+As a complementary measure, we used OLMo-3 to rewrite samples into a uniform third-person narrative style, removing source-specific formatting cues (e.g., KokoMind's parenthetical stage directions, ToMi's telegraphic agent-action lists). We completed 382 samples before prioritizing the contrastive approach — enough to demonstrate feasibility.
+
+### Step 7: Building the Hardened Dataset
+
+We combined the original 7,966 samples (with style normalization where available) with the 2,922 contrastive pairs, deduplicated, and re-split with the same anti-leakage strategy:
+
+| Source | ToM | Non-ToM | Total |
+|--------|-----|---------|-------|
+| tomi_nli | 2,769 | — | 2,769 |
+| social_iqa | — | 2,377 | 2,377 |
+| cicero | — | 1,543 | 1,543 |
+| **tomi_nli_contrastive** | — | **997** | 997 |
+| **social_iqa_contrastive** | **885** | — | 885 |
+| theory_of_mind | 623 | — | 623 |
+| simpletom | 530 | — | 530 |
+| **cicero_contrastive** | **512** | — | 512 |
+| **theory_of_mind_contrastive** | — | **243** | 243 |
+| **simpletom_contrastive** | — | **191** | 191 |
+| kokomind | 61 | 24 | 85 |
+| kokomind_contrastive | 11 | 16 | 27 |
+| **Total** | **5,391** | **5,391** | **10,782** |
+
+The critical difference: **every source dataset now contributes to both labels**. ToMi stories have both belief-tracking questions (ToM) and factual questions (non-ToM). SocialIQA scenarios have both commonsense questions (non-ToM) and generated belief-reasoning questions (ToM). A model can no longer distinguish the classes by recognizing the source.
+
+| Split | ToM | Non-ToM | Total |
+|-------|-----|---------|-------|
+| Train | 4,312 | 4,312 | 8,624 |
+| Validation | 536 | 536 | 1,072 |
+| Test | 543 | 543 | 1,086 |
+
+### The Result: Shortcuts Destroyed
+
+| Baseline | Original Dataset | Hardened Dataset | Change |
+|----------|-----------------|-----------------|--------|
+| Source-only classifier | 99.75% | **54.24%** | **−45.5 pp** |
+| Bag-of-words classifier | 99.24% | 92.54% | −6.7 pp |
+
+The source shortcut is gone. The bag-of-words shortcut is weakened but persists — some vocabulary differences between ToM and non-ToM questions remain (e.g., words like "think", "believe", "aware" naturally appear more in ToM questions). Full style normalization of all samples would reduce this further.
 
 ---
 
 ## The Shortcut Problem
 
-Our first trained router scored **99.75% accuracy** on the test set. Impressive — until we ran the sanity checks.
+Our first trained router scored **99.75% accuracy** on the original test set. Impressive — until we ran the sanity checks.
 
 A logistic regression using **only the dataset name** as a feature — knowing nothing about the actual text — achieved the exact same accuracy:
 
@@ -68,61 +221,6 @@ A logistic regression using **only the dataset name** as a feature — knowing n
 The classifier wasn't learning to detect Theory of Mind. It was learning to recognize **which dataset a sample came from** — because ToM questions only came from ToM-specific datasets and non-ToM questions only came from social reasoning datasets. The writing styles were different enough to make this trivial.
 
 > *A model that has never seen Theory of Mind and knows only the dataset name can match a 184-million-parameter language model. That is not a ToM classifier — it is a style detector.*
-
----
-
-## Breaking the Shortcut
-
-We attacked the problem with **contrastive augmentation**: for 3,000 training samples, we used OLMo-3 to generate an **opposite-label question about the same story context**.
-
-For a ToM story like:
-> *Oliver moved the potato from the cupboard to the basket. Carter didn't see this happen.*
-
-Instead of only asking a ToM question (*"Where does Carter think the potato is?"*), we also generated a factual question: *"Where is the potato now?"* — same story, but no Theory of Mind needed.
-
-Similarly, for a non-ToM social scenario, we generated a new question that *does* require reasoning about hidden beliefs.
-
-This produced **2,922 valid contrastive pairs** (97.4% success rate), yielding a **hardened dataset of 10,782 samples** where both labels appear across all source datasets.
-
-The result was dramatic:
-
-<table>
-<tr>
-<th></th>
-<th colspan="2" align="center">Original Dataset</th>
-<th colspan="2" align="center">Hardened Dataset</th>
-</tr>
-<tr>
-<th>Baseline</th>
-<th>Accuracy</th>
-<th>AUROC</th>
-<th>Accuracy</th>
-<th>AUROC</th>
-</tr>
-<tr>
-<td>Majority class (always guess same label)</td>
-<td>50.00%</td>
-<td>0.500</td>
-<td>50.00%</td>
-<td>0.500</td>
-</tr>
-<tr>
-<td><b>Source-only classifier (knows only dataset name)</b></td>
-<td><b>99.75%</b></td>
-<td><b>1.000</b></td>
-<td><b>54.24%</b></td>
-<td><b>0.451</b></td>
-</tr>
-<tr>
-<td>Bag-of-words classifier (word frequencies)</td>
-<td>99.24%</td>
-<td>1.000</td>
-<td>92.54%</td>
-<td>0.972</td>
-</tr>
-</table>
-
-The source shortcut dropped **45.5 percentage points** — from near-perfect to near-chance. A model can no longer cheat by recognizing writing style. It now has to actually understand the question.
 
 ---
 
@@ -199,7 +297,7 @@ The student router matches oracle routing to within 0.3%.
 
 2. **Contrastive augmentation works.** Generating opposite-label questions for the same story context destroyed the source shortcut (99.75% → 54.24%) and created a genuinely challenging benchmark.
 
-3. **Distillation helps when the task is hard.** On the easy original dataset, distillation was irrelevant. On the hardened dataset, it improved DeBERTa by 0.37 percentage points — a 30% error reduction. Soft teacher labels carry signal about ambiguous cases that binary labels miss.
+3. **Distillation helps when the task is hard.** On the easy original dataset, distillation was irrelevant. On the hardened dataset, it improved DeBERTa by 0.37 percentage points — a 44% error reduction. Soft teacher labels carry signal about ambiguous cases that binary labels miss.
 
 4. **Teacher-student disagreement is informative, not a bug.** The OLMo-3 teacher agreed with ground-truth labels only 56.4% of the time — many social reasoning questions genuinely sit on the boundary between ToM and non-ToM. Training on both signals lets the student learn that nuance.
 
