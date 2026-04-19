@@ -1,0 +1,8 @@
+teacher_type: llm_api
+provider: anthropic
+model_name: claude-sonnet-4-20250514
+max_retries: 5
+save_every: 100
+resume: true
+prompt_template: tom_router_v1
+output_path: outputs/teacher_labels/router_teacher_labels.parquet

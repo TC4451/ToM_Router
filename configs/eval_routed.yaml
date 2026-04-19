@@ -1,0 +1,10 @@
+seed: 42
+router_path: outputs/checkpoints/router_student
+tom_expert_path: outputs/checkpoints/tom_expert
+social_expert_path: outputs/checkpoints/social_expert
+dataset_path: data/processed/router_dataset.parquet
+split: test
+threshold_mode: f1_best
+fallback_mode: default_tom
+uncertainty_margin: 0.1
+output_dir: outputs/reports

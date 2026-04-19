@@ -1,0 +1,15 @@
+seed: 42
+model_name: microsoft/deberta-v3-base
+max_length: 512
+batch_size: 16
+lr: 2.0e-5
+weight_decay: 0.01
+epochs: 5
+warmup_ratio: 0.1
+scheduler: cosine
+alpha_hard: 0.7
+beta_soft: 0.3
+distill_temperature: 1.5
+threshold_mode: f1_best
+use_calibration: true
+output_dir: outputs/checkpoints/router_student

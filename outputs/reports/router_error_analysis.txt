@@ -1,0 +1,92 @@
+======================================================================
+ERROR ANALYSIS REPORT
+======================================================================
+
+## FALSE NEGATIVES (missed ToM): 1 samples
+These are ToM questions incorrectly routed to the social expert.
+
+  [kokomind_237] source=kokomind, subtype=belief
+  prob_tom=0.513
+  teacher_prob=0.000
+  context: Kevin (smiling, apologetic): Hey, just wanted to say sorry for what happened before. Ava (looking surprised, accepting): Oh, don't worry about it. I o...
+  question: In Ava's mind, what does she think Kevin feels about being observed at the party?
+
+## FALSE POSITIVES (unnecessary ToM): 1 samples
+These are non-ToM questions incorrectly routed to the ToM expert.
+
+  [kokomind_411] source=kokomind, subtype=advice
+  prob_tom=0.794
+  teacher_prob=0.000
+  context: Lila (Holding a paper mask, playful): I'm just fixing my makeup, but where's the rest of my face? Mila (Voice Over, thoughtful): A touch of lipstick n...
+  question: Under the situation where John is worried about Sophia's reaction to his scars and missing eye, what
+
+## NEAR DECISION BOUNDARY: 5 samples
+
+  [tom_3221_unknown] label=1, pred=1
+  prob_tom=0.816, source=theory_of_mind
+  context: Read the following story and answer the multiple-choice question. Please provide answer without explanations. 1 Isabella...
+  question: Where does Isabella think Hannah thinks Jacob thinks the tomato is?
+
+  [tom_3178_unknown] label=1, pred=1
+  prob_tom=0.816, source=theory_of_mind
+  context: Read the following story and answer the multiple-choice question. Please provide answer without explanations. 1 Emily, A...
+  question: Where is the asparagus really?
+
+  [tom_3167_unknown] label=1, pred=1
+  prob_tom=0.818, source=theory_of_mind
+  context: Read the following story and answer the multiple-choice question. Please provide answer without explanations. 1 Owen, El...
+  question: Where is the corn really?
+
+  [tom_3241_unknown] label=1, pred=1
+  prob_tom=0.816, source=theory_of_mind
+  context: Read the following story and answer the multiple-choice question. Please provide answer without explanations. 1 Isabella...
+  question: Where does Elizabeth think Isabella thinks Hannah thinks Jacob thinks the tomato
+
+  [kokomind_411] label=0, pred=1
+  prob_tom=0.794, source=kokomind
+  context: Lila (Holding a paper mask, playful): I'm just fixing my makeup, but where's the rest of my face? Mila (Voice Over, thou...
+  question: Under the situation where John is worried about Sophia's reaction to his scars a
+
+## TEACHER-STUDENT DISAGREEMENT: 396 samples
+
+  [tom_3247_unknown] hard=1, teacher=0, student=1
+  student_prob=0.822, teacher_prob=0.0
+  context: Read the following story and answer the multiple-choice question. Please provide answer without explanations. 1 Owen, El...
+
+  [tomi_nli_4833] hard=1, teacher=0, student=1
+  student_prob=0.918, teacher_prob=0.0
+  context: Ella entered the closet. James entered the closet. The green pepper is in the green container. Ella exited the closet. J...
+
+  [tomi_nli_2443] hard=1, teacher=0, student=1
+  student_prob=0.962, teacher_prob=0.0
+  context: Liam entered the living room. Chloe entered the living room. The lime is in the red bottle. Chloe likes the basement Lia...
+
+  [tom_540_faux_pas_r] hard=1, teacher=0, student=1
+  student_prob=0.944, teacher_prob=0.0
+  context: On the weekend, Xiao Ming and Xiao Gang are on the basketball court. Xiao Gang says, "My mom is sick recently, our famil...
+
+  [tom_3757_unknown] hard=1, teacher=0, student=1
+  student_prob=0.840, teacher_prob=0.0
+  context: 1 Avery, Aiden, Carter, William and Charlotte entered the office. 2 The cabbage is in the green_bucket. 3 Avery made no ...
+
+  [tomi_nli_5795] hard=1, teacher=0, student=1
+  student_prob=0.935, teacher_prob=0.0
+  context: Liam hates the corn Mason entered the garage. Liam entered the garage. James entered the garage. The orange is in the gr...
+
+  [tomi_nli_5083] hard=1, teacher=0, student=1
+  student_prob=0.962, teacher_prob=0.0
+  context: Isla entered the living room. Ava entered the living room. The potato is in the red bottle. Isla exited the living room....
+
+  [simpletom_gen242_sev2_action] hard=1, teacher=0, student=1
+  student_prob=0.901, teacher_prob=0.0
+  context: The weight loss supplement contains a banned substance that has been linked to severe liver damage, but the company has ...
+
+  [tomi_nli_7511] hard=1, teacher=0, student=1
+  student_prob=0.931, teacher_prob=0.0
+  context: Ella entered the garage. Nathan likes the lime Chloe dislikes the plum Chloe entered the laundry. Nathan entered the lau...
+
+  [tomi_nli_2918] hard=1, teacher=0, student=1
+  student_prob=0.930, teacher_prob=0.0
+  context: Chloe entered the lounge. Oliver entered the lounge. The radish is in the red crate. Chloe exited the lounge. Oliver mov...
+
+======================================================================

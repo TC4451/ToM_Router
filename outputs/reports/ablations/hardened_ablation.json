@@ -1,0 +1,148 @@
+[
+  {
+    "name": "Majority class",
+    "dataset": "original",
+    "test_acc": 0.5,
+    "test_f1": 0.3333333333333333,
+    "test_auroc": 0.5
+  },
+  {
+    "name": "Source-only LR (base source)",
+    "dataset": "original",
+    "test_acc": 0.39015151515151514,
+    "test_f1": 0.35414616027486306,
+    "test_auroc": 0.5921653402714009
+  },
+  {
+    "name": "TF-IDF BoW LR",
+    "dataset": "original",
+    "test_acc": 0.9924242424242424,
+    "test_f1": 0.9924240491799097,
+    "test_auroc": 0.9999426078971533
+  },
+  {
+    "test_acc": 0.9924242424242424,
+    "test_f1": 0.9924050632911392,
+    "test_macro_f1": 0.9924241941140834,
+    "test_auroc": 0.9999234771962044,
+    "test_brier": 0.00463301595300436,
+    "val_f1": 0.9987499980468719,
+    "n_params": 4386049,
+    "train_sec": 9.296793699264526,
+    "name": "BERT-tiny hard",
+    "dataset": "original",
+    "distilled": "No"
+  },
+  {
+    "test_acc": 0.9936868686868687,
+    "test_f1": 0.9936788874841972,
+    "test_macro_f1": 0.9936868586223004,
+    "test_auroc": 0.9998533312927252,
+    "test_brier": 0.011792040430009365,
+    "val_f1": 0.9975,
+    "n_params": 4386049,
+    "train_sec": 6.774714708328247,
+    "name": "BERT-tiny distilled",
+    "dataset": "original",
+    "distilled": "Yes"
+  },
+  {
+    "test_acc": 0.9974747474747475,
+    "test_f1": 0.9974683544303797,
+    "test_macro_f1": 0.9974747313713612,
+    "test_auroc": 0.9999936230996838,
+    "test_brier": 0.0019357642158865929,
+    "val_f1": 1.0,
+    "n_params": 183832321,
+    "train_sec": 201.83576130867004,
+    "name": "DeBERTa hard",
+    "dataset": "original",
+    "distilled": "No"
+  },
+  {
+    "test_acc": 0.9962121212121212,
+    "test_f1": 0.9962168978562421,
+    "test_macro_f1": 0.9962121151733803,
+    "test_auroc": 0.9999872461993674,
+    "test_brier": 0.010609365068376064,
+    "val_f1": 0.9987499980468719,
+    "n_params": 183832321,
+    "train_sec": 205.30599284172058,
+    "name": "DeBERTa distilled",
+    "dataset": "original",
+    "distilled": "Yes"
+  },
+  {
+    "name": "Majority class",
+    "dataset": "hardened",
+    "test_acc": 0.5,
+    "test_f1": 0.3333333333333333,
+    "test_auroc": 0.5
+  },
+  {
+    "name": "Source-only LR (base source)",
+    "dataset": "hardened",
+    "test_acc": 0.5423572744014733,
+    "test_f1": 0.5169640100412118,
+    "test_auroc": 0.45147177029598196
+  },
+  {
+    "name": "TF-IDF BoW LR",
+    "dataset": "hardened",
+    "test_acc": 0.925414364640884,
+    "test_f1": 0.9254143014002942,
+    "test_auroc": 0.9718432146624203
+  },
+  {
+    "test_acc": 0.9640883977900553,
+    "test_f1": 0.9645131938125568,
+    "test_macro_f1": 0.9640832511467258,
+    "test_auroc": 0.9920026861206923,
+    "test_brier": 0.0304886307567358,
+    "val_f1": 0.957079991087344,
+    "n_params": 4386049,
+    "train_sec": 18.96837592124939,
+    "name": "BERT-tiny hard",
+    "dataset": "hardened",
+    "distilled": "No"
+  },
+  {
+    "test_acc": 0.9622467771639043,
+    "test_f1": 0.9624885635864593,
+    "test_macro_f1": 0.962245208577289,
+    "test_auroc": 0.9878548002536892,
+    "test_brier": 0.03741612657904625,
+    "val_f1": 0.9542900503759706,
+    "n_params": 4386049,
+    "train_sec": 17.709291696548462,
+    "name": "BERT-tiny distilled",
+    "dataset": "hardened",
+    "distilled": "Yes"
+  },
+  {
+    "test_acc": 0.9917127071823204,
+    "test_f1": 0.9916897506925207,
+    "test_macro_f1": 0.9917126439413018,
+    "test_auroc": 0.9996557559971375,
+    "test_brier": 0.007890165783464909,
+    "val_f1": 0.996268656716418,
+    "n_params": 183832321,
+    "train_sec": 4881.533051252365,
+    "name": "DeBERTa hard",
+    "dataset": "hardened",
+    "distilled": "No"
+  },
+  {
+    "test_acc": 0.9953959484346224,
+    "test_f1": 0.9954001839926403,
+    "test_macro_f1": 0.9953959445308824,
+    "test_auroc": 0.9985212769926302,
+    "test_brier": 0.018396208062767982,
+    "val_f1": 0.9972014706202275,
+    "n_params": 183832321,
+    "train_sec": 2715.8100192546844,
+    "name": "DeBERTa distilled",
+    "dataset": "hardened",
+    "distilled": "Yes"
+  }
+]

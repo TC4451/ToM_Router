@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+*.Zone.Identifier
+
+# Model checkpoints (too large for git)
+outputs/checkpoints/
+
+# Raw downloaded datasets (can be re-downloaded)
+data/raw/*
+!data/raw/.gitkeep
+
+# Interim processed files (can be regenerated)
+data/interim/*
+!data/interim/.gitkeep
+
+# Teacher label cache (can be regenerated)
+outputs/teacher_labels/teacher_cache.jsonl
+
+# Style normalization cache (can be regenerated)
+outputs/style_norm/
+
+# Contrastive generation cache (can be regenerated)
+outputs/contrastive/contrastive_cache.jsonl
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# wandb logs
+wandb/

@@ -1,0 +1,6 @@
+seed: 42
+model_path: outputs/checkpoints/router_student
+dataset_path: data/processed/router_dataset.parquet
+split: test
+output_dir: outputs/reports
+save_predictions: true

@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tom-router"
+version = "0.1.0"
+description = "Theory-of-Mind Router with Knowledge Distillation"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.0",
+    "transformers>=4.30",
+    "datasets>=2.14",
+    "pandas>=2.0",
+    "pyarrow>=12.0",
+    "scikit-learn>=1.3",
+    "omegaconf>=2.3",
+    "numpy>=1.24",
+    "bitsandbytes>=0.41",
+    "accelerate>=0.20",
+    "sentencepiece",
+    "tiktoken",
+]
+
+[tool.setuptools.packages.find]
+include = ["src*"]

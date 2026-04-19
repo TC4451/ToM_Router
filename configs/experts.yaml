@@ -1,0 +1,15 @@
+seed: 42
+tom_expert:
+  model_name: microsoft/deberta-v3-base
+  max_length: 512
+  batch_size: 16
+  lr: 2.0e-5
+  epochs: 5
+  output_dir: outputs/checkpoints/tom_expert
+social_expert:
+  model_name: microsoft/deberta-v3-base
+  max_length: 512
+  batch_size: 16
+  lr: 2.0e-5
+  epochs: 5
+  output_dir: outputs/checkpoints/social_expert

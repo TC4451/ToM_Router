@@ -1,0 +1,10 @@
+seed: 42
+raw_simpletom_dir: data/raw/simpletom
+raw_kokomind_path: data/raw/kokomind/question_nonverbal_yes_v0.1.jsonl
+interim_dir: data/interim
+processed_dir: data/processed
+train_ratio: 0.8
+val_ratio: 0.1
+test_ratio: 0.1
+balance_labels: true
+target_label_ratio: 0.5

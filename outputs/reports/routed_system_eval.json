@@ -1,0 +1,48 @@
+[
+  {
+    "strategy": "student_router",
+    "route_accuracy": 0.9974747474747475,
+    "tom_recall": 0.9974747474747475,
+    "non_tom_recall": 0.9974747474747475,
+    "n_routed_tom": 396,
+    "n_routed_social": 396,
+    "accuracy": 0.9974747474747475,
+    "f1": 0.9974747474747475,
+    "auroc": 0.9999936230996838
+  },
+  {
+    "strategy": "oracle_router",
+    "route_accuracy": 1.0,
+    "tom_recall": 1.0,
+    "non_tom_recall": 1.0,
+    "n_routed_tom": 396,
+    "n_routed_social": 396,
+    "accuracy": 1.0,
+    "f1": 1.0,
+    "auroc": 1.0
+  },
+  {
+    "strategy": "always_tom",
+    "route_accuracy": 0.5,
+    "tom_recall": 1.0,
+    "non_tom_recall": 0.0,
+    "n_routed_tom": 792,
+    "n_routed_social": 0
+  },
+  {
+    "strategy": "always_social",
+    "route_accuracy": 0.5,
+    "tom_recall": 0.0,
+    "non_tom_recall": 1.0,
+    "n_routed_tom": 0,
+    "n_routed_social": 792
+  },
+  {
+    "strategy": "random",
+    "route_accuracy": 0.47853535353535354,
+    "tom_recall": 0.5,
+    "non_tom_recall": 0.45707070707070707,
+    "n_routed_tom": 413,
+    "n_routed_social": 379
+  }
+]

@@ -1,0 +1,44 @@
+============================================================
+HARDENED DATASET REPORT
+============================================================
+
+Total samples: 10782
+
+--- Label by source ---
+requires_tom                   0     1    All
+source_dataset                               
+cicero                      1543     0   1543
+cicero_contrastive             0   512    512
+kokomind                      24    61     85
+kokomind_contrastive          16    11     27
+simpletom                      0   530    530
+simpletom_contrastive        191     0    191
+social_iqa                  2377     0   2377
+social_iqa_contrastive         0   885    885
+theory_of_mind                 0   623    623
+theory_of_mind_contrastive   243     0    243
+tomi_nli                       0  2769   2769
+tomi_nli_contrastive         997     0    997
+All                         5391  5391  10782
+
+--- Split distribution ---
+requires_tom     0     1    All
+split                          
+test           543   543   1086
+train         4312  4312   8624
+val            536   536   1072
+All           5391  5391  10782
+
+--- Contrastive coverage ---
+  Contrastive samples: 2855
+  Original samples: 7927
+
+--- Source diversity per label ---
+  requires_tom=0:
+    {'social_iqa': 2377, 'cicero': 1543, 'tomi_nli_contrastive': 997, 'theory_of_mind_contrastive': 243, 'simpletom_contrastive': 191, 'kokomind': 24, 'kokomind_contrastive': 16}
+  requires_tom=1:
+    {'tomi_nli': 2769, 'social_iqa_contrastive': 885, 'theory_of_mind': 623, 'simpletom': 530, 'cicero_contrastive': 512, 'kokomind': 61, 'kokomind_contrastive': 11}
+
+--- Context length by label ---
+  requires_tom=0: mean=249, median=198
+  requires_tom=1: mean=287, median=239

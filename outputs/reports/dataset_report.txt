@@ -1,0 +1,67 @@
+============================================================
+ROUTER DATASET REPORT
+============================================================
+
+Total samples: 7966
+
+--- Label counts by source ---
+requires_tom       0     1   All
+source_dataset                  
+cicero          1560     0  1560
+kokomind          25    61    86
+simpletom          0   530   530
+social_iqa      2398     0  2398
+theory_of_mind     0   623   623
+tomi_nli           0  2769  2769
+All             3983  3983  7966
+
+--- Subtype distribution ---
+subtype
+belief                3919
+social_commonsense    3054
+emotion                904
+intention               42
+emotion_tom             17
+relation                12
+desire                   5
+counterfactual           5
+advice                   5
+norm                     3
+
+--- Split distribution ---
+requires_tom     0     1   All
+split                         
+test           396   396   792
+train         3187  3187  6374
+val            400   400   800
+All           3983  3983  7966
+
+--- Source mix by split ---
+source_dataset  cicero  kokomind  simpletom  social_iqa  theory_of_mind  tomi_nli   All
+split                                                                                  
+test               146         7         55         248              56       280   792
+train             1254        74        420        1914             501      2211  6374
+val                160         5         55         236              66       278   800
+All               1560        86        530        2398             623      2769  7966
+
+--- Average context length (chars) by label ---
+requires_tom
+0    226.771529
+1    307.852122
+
+--- Average question length (chars) by label ---
+requires_tom
+0    41.089380
+1    78.976651
+
+--- Length distribution check ---
+  requires_tom=0: mean=227, median=90, std=227, min=20, max=1539
+  requires_tom=1: mean=308, median=243, std=253, min=45, max=2116
+
+--- Source diversity per label ---
+  requires_tom=0:
+    {'social_iqa': 2398, 'cicero': 1560, 'kokomind': 25}
+  requires_tom=1:
+    {'tomi_nli': 2769, 'theory_of_mind': 623, 'simpletom': 530, 'kokomind': 61}
+
+============================================================
