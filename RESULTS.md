@@ -151,7 +151,7 @@ Marginal differences — the task was too easy for distillation to matter.
 | BERT-tiny (4M parameters) | 96.41% | 96.22% | −0.19% |
 | **DeBERTa (184M parameters)** | **99.17%** | **99.54%** | **+0.37%** |
 
-On the harder dataset, DeBERTa with distillation outperformed DeBERTa without it — a **+0.37 percentage point gain**, reducing errors by roughly 30% (from 9 errors to 5 on the test set). The teacher's soft probabilities carry useful signal about borderline cases that binary labels alone cannot express.
+On the harder dataset, DeBERTa with distillation outperformed DeBERTa without it — a **+0.37 percentage point gain**. While 0.37% sounds small, at this accuracy level the error rate dropped from 0.83% to 0.46% — a **44% reduction in errors** (from ~9 errors to ~5 on the 1,086-sample test set). The teacher's soft probabilities carry useful signal about borderline cases that binary labels alone cannot express.
 
 The small BERT-tiny model showed a slight decrease with distillation on the hardened data. This is expected: the contrastive samples were assigned placeholder soft labels (equal to their hard labels) rather than proper teacher probabilities. With full teacher labeling on the contrastive samples, we would expect distillation gains for the small model as well.
 
