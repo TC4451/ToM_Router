@@ -1,0 +1,5646 @@
+{
+  "summary": [
+    {
+      "policy": "always_tom",
+      "routing_accuracy": 0.495,
+      "avg_tokens_per_turn": 934.185,
+      "avg_latency_ms": 0.00714699427286784,
+      "tom_ratio": 1.0,
+      "cost_ratio": 1.0
+    },
+    {
+      "policy": "general_social",
+      "routing_accuracy": 0.505,
+      "avg_tokens_per_turn": 295.895,
+      "avg_latency_ms": 0.0071247418721516916,
+      "tom_ratio": 0.0,
+      "cost_ratio": 0.31674133067861293
+    },
+    {
+      "policy": "adaptive_router",
+      "routing_accuracy": 0.6808333333333334,
+      "avg_tokens_per_turn": 720.76,
+      "avg_latency_ms": 17.887750069300335,
+      "tom_ratio": 0.6591666666666666,
+      "cost_ratio": 0.7715388279623415
+    }
+  ],
+  "per_scenario": {
+    "always_tom": {
+      "pure_tom_0": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.0848304181308485,
+          "routing_accuracy": 1.0,
+          "total_tokens": 5820,
+          "avg_tokens_per_turn": 970.0,
+          "total_latency_ms": 0.10991096496582031,
+          "avg_latency_ms": 0.01831849416097005,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.01457567321835885,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_1": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.011111111111111112,
+          "routing_accuracy": 1.0,
+          "total_tokens": 4563,
+          "avg_tokens_per_turn": 760.5,
+          "total_latency_ms": 0.03838539123535156,
+          "avg_latency_ms": 0.006397565205891927,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0024350451700879054,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_2": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.015503875968992248,
+          "routing_accuracy": 1.0,
+          "total_tokens": 4245,
+          "avg_tokens_per_turn": 707.5,
+          "total_latency_ms": 0.03600120544433594,
+          "avg_latency_ms": 0.006000200907389323,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.003652267601647173,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_3": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.03335417969564311,
+          "routing_accuracy": 1.0,
+          "total_tokens": 4194,
+          "avg_tokens_per_turn": 699.0,
+          "total_latency_ms": 0.03981590270996094,
+          "avg_latency_ms": 0.006635983784993489,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.007952832545456154,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_4": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.027777777777777776,
+          "routing_accuracy": 1.0,
+          "total_tokens": 4470,
+          "avg_tokens_per_turn": 745.0,
+          "total_latency_ms": 0.03647804260253906,
+          "avg_latency_ms": 0.006079673767089844,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.006214267959234402,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_5": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.03781004234724742,
+          "routing_accuracy": 1.0,
+          "total_tokens": 5856,
+          "avg_tokens_per_turn": 976.0,
+          "total_latency_ms": 0.05340576171875,
+          "avg_latency_ms": 0.008900960286458334,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.006456632914488972,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_6": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.03885003885003885,
+          "routing_accuracy": 1.0,
+          "total_tokens": 4974,
+          "avg_tokens_per_turn": 829.0,
+          "total_latency_ms": 0.04291534423828125,
+          "avg_latency_ms": 0.007152557373046875,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.007810623009657991,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_7": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.019047619047619046,
+          "routing_accuracy": 1.0,
+          "total_tokens": 4989,
+          "avg_tokens_per_turn": 831.5,
+          "total_latency_ms": 0.03981590270996094,
+          "avg_latency_ms": 0.006635983784993489,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.003817923240653246,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_8": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.042863657090743267,
+          "routing_accuracy": 1.0,
+          "total_tokens": 4707,
+          "avg_tokens_per_turn": 784.5,
+          "total_latency_ms": 0.041961669921875,
+          "avg_latency_ms": 0.006993611653645833,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.00910636437024501,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_9": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.031586021505376344,
+          "routing_accuracy": 1.0,
+          "total_tokens": 6051,
+          "avg_tokens_per_turn": 1008.5,
+          "total_latency_ms": 0.04601478576660156,
+          "avg_latency_ms": 0.007669130961100261,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.00521996719639338,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_0": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.08907323613205965,
+          "routing_accuracy": 0.0,
+          "total_tokens": 4809,
+          "avg_tokens_per_turn": 801.5,
+          "total_latency_ms": 0.034332275390625,
+          "avg_latency_ms": 0.0057220458984375,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.01852219507840708,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_social_1": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.11495875885430334,
+          "routing_accuracy": 0.0,
+          "total_tokens": 3588,
+          "avg_tokens_per_turn": 598.0,
+          "total_latency_ms": 0.025033950805664062,
+          "avg_latency_ms": 0.004172325134277344,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.03203978786351821,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_social_2": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.0858951243332582,
+          "routing_accuracy": 0.0,
+          "total_tokens": 3345,
+          "avg_tokens_per_turn": 557.5,
+          "total_latency_ms": 0.02956390380859375,
+          "avg_latency_ms": 0.004927317301432292,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.02567866198303683,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_social_3": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.10138499844382198,
+          "routing_accuracy": 0.0,
+          "total_tokens": 4788,
+          "avg_tokens_per_turn": 798.0,
+          "total_latency_ms": 0.03528594970703125,
+          "avg_latency_ms": 0.005880991617838542,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.021174811705058895,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_social_4": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.03294117647058823,
+          "routing_accuracy": 0.0,
+          "total_tokens": 3960,
+          "avg_tokens_per_turn": 660.0,
+          "total_latency_ms": 0.028848648071289062,
+          "avg_latency_ms": 0.004808108011881511,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0083184789067142,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_social_5": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.094069473199908,
+          "routing_accuracy": 0.0,
+          "total_tokens": 3408,
+          "avg_tokens_per_turn": 568.0,
+          "total_latency_ms": 0.02956390380859375,
+          "avg_latency_ms": 0.004927317301432292,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.027602544953024645,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_social_6": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.06825396825396825,
+          "routing_accuracy": 0.0,
+          "total_tokens": 3882,
+          "avg_tokens_per_turn": 647.0,
+          "total_latency_ms": 0.03695487976074219,
+          "avg_latency_ms": 0.006159146626790364,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.017582165959291154,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_social_7": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.01234567901234568,
+          "routing_accuracy": 0.0,
+          "total_tokens": 6102,
+          "avg_tokens_per_turn": 1017.0,
+          "total_latency_ms": 0.04220008850097656,
+          "avg_latency_ms": 0.007033348083496094,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.002023218454989459,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_social_8": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.05152979066022545,
+          "routing_accuracy": 0.0,
+          "total_tokens": 3705,
+          "avg_tokens_per_turn": 617.5,
+          "total_latency_ms": 0.036716461181640625,
+          "avg_latency_ms": 0.0061194101969401045,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.013908175616794992,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_social_9": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.09577550263824774,
+          "routing_accuracy": 0.0,
+          "total_tokens": 7638,
+          "avg_tokens_per_turn": 1273.0,
+          "total_latency_ms": 0.060558319091796875,
+          "avg_latency_ms": 0.010093053181966146,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.012539343105295593,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "mixed_0": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.051224798219683135,
+          "routing_accuracy": 0.5,
+          "total_tokens": 12234,
+          "avg_tokens_per_turn": 1529.25,
+          "total_latency_ms": 0.07796287536621094,
+          "avg_latency_ms": 0.009745359420776367,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.004187085026948107,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "mixed_1": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.02937605872388481,
+          "routing_accuracy": 0.5,
+          "total_tokens": 6804,
+          "avg_tokens_per_turn": 850.5,
+          "total_latency_ms": 0.0476837158203125,
+          "avg_latency_ms": 0.0059604644775390625,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.004317468948248797,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "mixed_2": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03748020947509438,
+          "routing_accuracy": 0.5,
+          "total_tokens": 6801,
+          "avg_tokens_per_turn": 850.125,
+          "total_latency_ms": 0.047206878662109375,
+          "avg_latency_ms": 0.005900859832763672,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.005510985072062106,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "mixed_3": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.06593567251461989,
+          "routing_accuracy": 0.5,
+          "total_tokens": 8928,
+          "avg_tokens_per_turn": 1116.0,
+          "total_latency_ms": 0.08702278137207031,
+          "avg_latency_ms": 0.010877847671508789,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.00738526797878807,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "mixed_4": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03273809523809523,
+          "routing_accuracy": 0.5,
+          "total_tokens": 13371,
+          "avg_tokens_per_turn": 1671.375,
+          "total_latency_ms": 0.08630752563476562,
+          "avg_latency_ms": 0.010788440704345703,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.002448440299012432,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "mixed_5": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.05002029220779221,
+          "routing_accuracy": 0.5,
+          "total_tokens": 6093,
+          "avg_tokens_per_turn": 761.625,
+          "total_latency_ms": 0.04291534423828125,
+          "avg_latency_ms": 0.005364418029785156,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.008209468604594159,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "mixed_6": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03703703703703704,
+          "routing_accuracy": 0.5,
+          "total_tokens": 5721,
+          "avg_tokens_per_turn": 715.125,
+          "total_latency_ms": 0.0400543212890625,
+          "avg_latency_ms": 0.0050067901611328125,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.00647387467873397,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "mixed_7": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.038815789473684206,
+          "routing_accuracy": 0.5,
+          "total_tokens": 5541,
+          "avg_tokens_per_turn": 692.625,
+          "total_latency_ms": 0.03910064697265625,
+          "avg_latency_ms": 0.004887580871582031,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0070051957180444335,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "mixed_8": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.025657894736842102,
+          "routing_accuracy": 0.5,
+          "total_tokens": 7248,
+          "avg_tokens_per_turn": 906.0,
+          "total_latency_ms": 0.0591278076171875,
+          "avg_latency_ms": 0.0073909759521484375,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.00353999651446497,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "mixed_9": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.07405779233028809,
+          "routing_accuracy": 0.5,
+          "total_tokens": 8763,
+          "avg_tokens_per_turn": 1095.375,
+          "total_latency_ms": 0.06365776062011719,
+          "avg_latency_ms": 0.007957220077514648,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.008451191638741081,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "transition_s2t_0": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.04006165750117363,
+          "routing_accuracy": 0.375,
+          "total_tokens": 5661,
+          "avg_tokens_per_turn": 707.625,
+          "total_latency_ms": 0.040531158447265625,
+          "avg_latency_ms": 0.005066394805908203,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.007076781045958953,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_1": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 3,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.04124496323984815,
+          "routing_accuracy": 0.625,
+          "total_tokens": 8751,
+          "avg_tokens_per_turn": 1093.875,
+          "total_latency_ms": 0.054836273193359375,
+          "avg_latency_ms": 0.006854534149169922,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.004713171436389916,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_2": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.06331699346405228,
+          "routing_accuracy": 0.375,
+          "total_tokens": 9840,
+          "avg_tokens_per_turn": 1230.0,
+          "total_latency_ms": 0.06079673767089844,
+          "avg_latency_ms": 0.007599592208862305,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.006434653807322387,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_3": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.05929487179487179,
+          "routing_accuracy": 0.375,
+          "total_tokens": 6909,
+          "avg_tokens_per_turn": 863.625,
+          "total_latency_ms": 0.049114227294921875,
+          "avg_latency_ms": 0.006139278411865234,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.008582265421171196,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_4": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 3,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.05150137349625841,
+          "routing_accuracy": 0.625,
+          "total_tokens": 6843,
+          "avg_tokens_per_turn": 855.375,
+          "total_latency_ms": 0.04887580871582031,
+          "avg_latency_ms": 0.006109476089477539,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.007526139631193689,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_5": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 3,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.06313908792357067,
+          "routing_accuracy": 0.625,
+          "total_tokens": 10212,
+          "avg_tokens_per_turn": 1276.5,
+          "total_latency_ms": 0.072479248046875,
+          "avg_latency_ms": 0.009059906005859375,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.006182832738305001,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_6": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.06064424297894094,
+          "routing_accuracy": 0.375,
+          "total_tokens": 11892,
+          "avg_tokens_per_turn": 1486.5,
+          "total_latency_ms": 0.07510185241699219,
+          "avg_latency_ms": 0.009387731552124023,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.005099583163382185,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_7": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.06668899904919641,
+          "routing_accuracy": 0.5,
+          "total_tokens": 9852,
+          "avg_tokens_per_turn": 1231.5,
+          "total_latency_ms": 0.08106231689453125,
+          "avg_latency_ms": 0.010132789611816406,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.006769082323304549,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_8": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.04864253393665158,
+          "routing_accuracy": 0.375,
+          "total_tokens": 9339,
+          "avg_tokens_per_turn": 1167.375,
+          "total_latency_ms": 0.06651878356933594,
+          "avg_latency_ms": 0.008314847946166992,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.005208537738157359,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_9": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.043835999312005505,
+          "routing_accuracy": 0.375,
+          "total_tokens": 6765,
+          "avg_tokens_per_turn": 845.625,
+          "total_latency_ms": 0.0476837158203125,
+          "avg_latency_ms": 0.0059604644775390625,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.006479822514708871,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_t2s_0": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.06113256113256113,
+          "routing_accuracy": 0.625,
+          "total_tokens": 6822,
+          "avg_tokens_per_turn": 852.75,
+          "total_latency_ms": 0.0476837158203125,
+          "avg_latency_ms": 0.0059604644775390625,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.008961090755286005,
+          "adaptation_speed": 3,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_1": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.0409691802252816,
+          "routing_accuracy": 0.625,
+          "total_tokens": 8811,
+          "avg_tokens_per_turn": 1101.375,
+          "total_latency_ms": 0.06031990051269531,
+          "avg_latency_ms": 0.007539987564086914,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.004649776441412053,
+          "adaptation_speed": 3,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_2": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 3,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03913311201542086,
+          "routing_accuracy": 0.375,
+          "total_tokens": 7296,
+          "avg_tokens_per_turn": 912.0,
+          "total_latency_ms": 0.05173683166503906,
+          "avg_latency_ms": 0.006467103958129883,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.005363639256499569,
+          "adaptation_speed": 5,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_3": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.02661064425770308,
+          "routing_accuracy": 0.625,
+          "total_tokens": 7059,
+          "avg_tokens_per_turn": 882.375,
+          "total_latency_ms": 0.050067901611328125,
+          "avg_latency_ms": 0.006258487701416016,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0037697470261656156,
+          "adaptation_speed": 3,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_4": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.019257703081232494,
+          "routing_accuracy": 0.5,
+          "total_tokens": 7575,
+          "avg_tokens_per_turn": 946.875,
+          "total_latency_ms": 0.050067901611328125,
+          "avg_latency_ms": 0.006258487701416016,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0025422710338260717,
+          "adaptation_speed": 4,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_5": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 3,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.024521531100478465,
+          "routing_accuracy": 0.375,
+          "total_tokens": 6408,
+          "avg_tokens_per_turn": 801.0,
+          "total_latency_ms": 0.04458427429199219,
+          "avg_latency_ms": 0.0055730342864990234,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0038267058521345917,
+          "adaptation_speed": 5,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_6": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.037711952026468154,
+          "routing_accuracy": 0.5,
+          "total_tokens": 12084,
+          "avg_tokens_per_turn": 1510.5,
+          "total_latency_ms": 0.080108642578125,
+          "avg_latency_ms": 0.010013580322265625,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0031208169502208003,
+          "adaptation_speed": 4,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_7": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.030539772727272728,
+          "routing_accuracy": 0.5,
+          "total_tokens": 8076,
+          "avg_tokens_per_turn": 1009.5,
+          "total_latency_ms": 0.0553131103515625,
+          "avg_latency_ms": 0.0069141387939453125,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0037815468954027647,
+          "adaptation_speed": 4,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_8": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.014705882352941176,
+          "routing_accuracy": 0.5,
+          "total_tokens": 8607,
+          "avg_tokens_per_turn": 1075.875,
+          "total_latency_ms": 0.06079673767089844,
+          "avg_latency_ms": 0.007599592208862305,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0017085956027583567,
+          "adaptation_speed": 4,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_9": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.07264987334646777,
+          "routing_accuracy": 0.5,
+          "total_tokens": 6576,
+          "avg_tokens_per_turn": 822.0,
+          "total_latency_ms": 0.04506111145019531,
+          "avg_latency_ms": 0.005632638931274414,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.011047730131762131,
+          "adaptation_speed": 4,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    "general_social": {
+      "pure_tom_0": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.05284620970895482,
+          "routing_accuracy": 0.0,
+          "total_tokens": 1856,
+          "avg_tokens_per_turn": 309.3333333333333,
+          "total_latency_ms": 0.04792213439941406,
+          "avg_latency_ms": 0.007987022399902344,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.02847317333456617,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_tom_1": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.0,
+          "routing_accuracy": 0.0,
+          "total_tokens": 1437,
+          "avg_tokens_per_turn": 239.5,
+          "total_latency_ms": 0.030040740966796875,
+          "avg_latency_ms": 0.0050067901611328125,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.0,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_tom_2": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.008547008547008548,
+          "routing_accuracy": 0.0,
+          "total_tokens": 1331,
+          "avg_tokens_per_turn": 221.83333333333334,
+          "total_latency_ms": 0.028371810913085938,
+          "avg_latency_ms": 0.004728635152180989,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.0064214940247998105,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_tom_3": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.018532818532818532,
+          "routing_accuracy": 0.0,
+          "total_tokens": 1314,
+          "avg_tokens_per_turn": 219.0,
+          "total_latency_ms": 0.026941299438476562,
+          "avg_latency_ms": 0.004490216573079427,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.014104123693164787,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_tom_4": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.01666666666666667,
+          "routing_accuracy": 0.0,
+          "total_tokens": 1406,
+          "avg_tokens_per_turn": 234.33333333333334,
+          "total_latency_ms": 0.0286102294921875,
+          "avg_latency_ms": 0.00476837158203125,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.011853959222380276,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_tom_5": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.0196078431372549,
+          "routing_accuracy": 0.0,
+          "total_tokens": 1868,
+          "avg_tokens_per_turn": 311.3333333333333,
+          "total_latency_ms": 0.03719329833984375,
+          "avg_latency_ms": 0.006198883056640625,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.010496704034933031,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_tom_6": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.024999999999999998,
+          "routing_accuracy": 0.0,
+          "total_tokens": 1574,
+          "avg_tokens_per_turn": 262.3333333333333,
+          "total_latency_ms": 0.031232833862304688,
+          "avg_latency_ms": 0.005205472310384114,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.01588310038119441,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_tom_7": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.01075268817204301,
+          "routing_accuracy": 0.0,
+          "total_tokens": 1579,
+          "avg_tokens_per_turn": 263.1666666666667,
+          "total_latency_ms": 0.030994415283203125,
+          "avg_latency_ms": 0.0051657358805338545,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.0068098088486656175,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_tom_8": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.028205128205128206,
+          "routing_accuracy": 0.0,
+          "total_tokens": 1485,
+          "avg_tokens_per_turn": 247.5,
+          "total_latency_ms": 0.030517578125,
+          "avg_latency_ms": 0.005086263020833333,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.018993352326685663,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_tom_9": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.011904761904761904,
+          "routing_accuracy": 0.0,
+          "total_tokens": 1933,
+          "avg_tokens_per_turn": 322.1666666666667,
+          "total_latency_ms": 0.03790855407714844,
+          "avg_latency_ms": 0.006318092346191406,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.006158697312344493,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_social_0": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.04945054945054945,
+          "routing_accuracy": 1.0,
+          "total_tokens": 1519,
+          "avg_tokens_per_turn": 253.16666666666666,
+          "total_latency_ms": 0.03719329833984375,
+          "avg_latency_ms": 0.006198883056640625,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.032554673765997,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_1": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.03606237816764133,
+          "routing_accuracy": 1.0,
+          "total_tokens": 1112,
+          "avg_tokens_per_turn": 185.33333333333334,
+          "total_latency_ms": 0.024557113647460938,
+          "avg_latency_ms": 0.004092852274576823,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.03243019619392206,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_2": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.0,
+          "routing_accuracy": 1.0,
+          "total_tokens": 1031,
+          "avg_tokens_per_turn": 171.83333333333334,
+          "total_latency_ms": 0.03361701965332031,
+          "avg_latency_ms": 0.005602836608886719,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.0,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_3": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.0,
+          "routing_accuracy": 1.0,
+          "total_tokens": 1512,
+          "avg_tokens_per_turn": 252.0,
+          "total_latency_ms": 0.030517578125,
+          "avg_latency_ms": 0.005086263020833333,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.0,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_4": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.0,
+          "routing_accuracy": 1.0,
+          "total_tokens": 1236,
+          "avg_tokens_per_turn": 206.0,
+          "total_latency_ms": 0.026941299438476562,
+          "avg_latency_ms": 0.004490216573079427,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.0,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_5": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.02380952380952381,
+          "routing_accuracy": 1.0,
+          "total_tokens": 1052,
+          "avg_tokens_per_turn": 175.33333333333334,
+          "total_latency_ms": 0.02384185791015625,
+          "avg_latency_ms": 0.003973642985026042,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.02263262719536484,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_6": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.030555555555555558,
+          "routing_accuracy": 1.0,
+          "total_tokens": 1210,
+          "avg_tokens_per_turn": 201.66666666666666,
+          "total_latency_ms": 0.026464462280273438,
+          "avg_latency_ms": 0.004410743713378906,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.025252525252525256,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_7": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.0,
+          "routing_accuracy": 1.0,
+          "total_tokens": 1950,
+          "avg_tokens_per_turn": 325.0,
+          "total_latency_ms": 0.03600120544433594,
+          "avg_latency_ms": 0.006000200907389323,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.0,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_8": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.02380952380952381,
+          "routing_accuracy": 1.0,
+          "total_tokens": 1151,
+          "avg_tokens_per_turn": 191.83333333333334,
+          "total_latency_ms": 0.022649765014648438,
+          "avg_latency_ms": 0.0037749608357747397,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.020685945968309135,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_9": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.031159420289855078,
+          "routing_accuracy": 1.0,
+          "total_tokens": 2462,
+          "avg_tokens_per_turn": 410.3333333333333,
+          "total_latency_ms": 0.04744529724121094,
+          "avg_latency_ms": 0.007907549540201822,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.012656141466228708,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "mixed_0": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.008064516129032258,
+          "routing_accuracy": 0.5,
+          "total_tokens": 3946,
+          "avg_tokens_per_turn": 493.25,
+          "total_latency_ms": 0.06890296936035156,
+          "avg_latency_ms": 0.008612871170043945,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.0020437192420254074,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "mixed_1": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.0,
+          "routing_accuracy": 0.5,
+          "total_tokens": 2136,
+          "avg_tokens_per_turn": 267.0,
+          "total_latency_ms": 0.04315376281738281,
+          "avg_latency_ms": 0.0053942203521728516,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.0,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "mixed_2": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.013157894736842106,
+          "routing_accuracy": 0.5,
+          "total_tokens": 2135,
+          "avg_tokens_per_turn": 266.875,
+          "total_latency_ms": 0.04267692565917969,
+          "avg_latency_ms": 0.005334615707397461,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.00616294835449279,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "mixed_3": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.025210084033613446,
+          "routing_accuracy": 0.5,
+          "total_tokens": 2844,
+          "avg_tokens_per_turn": 355.5,
+          "total_latency_ms": 0.05626678466796875,
+          "avg_latency_ms": 0.007033348083496094,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.00886430521575719,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "mixed_4": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.0,
+          "routing_accuracy": 0.5,
+          "total_tokens": 4325,
+          "avg_tokens_per_turn": 540.625,
+          "total_latency_ms": 0.080108642578125,
+          "avg_latency_ms": 0.010013580322265625,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.0,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "mixed_5": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.02281746031746032,
+          "routing_accuracy": 0.5,
+          "total_tokens": 1899,
+          "avg_tokens_per_turn": 237.375,
+          "total_latency_ms": 0.03981590270996094,
+          "avg_latency_ms": 0.004976987838745117,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.012015513595292427,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "mixed_6": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.01785714285714286,
+          "routing_accuracy": 0.5,
+          "total_tokens": 1775,
+          "avg_tokens_per_turn": 221.875,
+          "total_latency_ms": 0.03695487976074219,
+          "avg_latency_ms": 0.0046193599700927734,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.01006036217303823,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "mixed_7": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.016666666666666666,
+          "routing_accuracy": 0.5,
+          "total_tokens": 1715,
+          "avg_tokens_per_turn": 214.375,
+          "total_latency_ms": 0.034809112548828125,
+          "avg_latency_ms": 0.004351139068603516,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.009718172983479106,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "mixed_8": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.006944444444444444,
+          "routing_accuracy": 0.5,
+          "total_tokens": 2284,
+          "avg_tokens_per_turn": 285.5,
+          "total_latency_ms": 0.0457763671875,
+          "avg_latency_ms": 0.0057220458984375,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.003040474800544853,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "mixed_9": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.047610590129771715,
+          "routing_accuracy": 0.5,
+          "total_tokens": 2789,
+          "avg_tokens_per_turn": 348.625,
+          "total_latency_ms": 0.29206275939941406,
+          "avg_latency_ms": 0.03650784492492676,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.017070846227956873,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "transition_s2t_0": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.008928571428571428,
+          "routing_accuracy": 0.625,
+          "total_tokens": 1755,
+          "avg_tokens_per_turn": 219.375,
+          "total_latency_ms": 0.03886222839355469,
+          "avg_latency_ms": 0.004857778549194336,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.005087505087505087,
+          "adaptation_speed": 3,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_s2t_1": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 3,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.0,
+          "routing_accuracy": 0.375,
+          "total_tokens": 2785,
+          "avg_tokens_per_turn": 348.125,
+          "total_latency_ms": 0.07748603820800781,
+          "avg_latency_ms": 0.009685754776000977,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.0,
+          "adaptation_speed": 5,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_s2t_2": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03423913043478261,
+          "routing_accuracy": 0.625,
+          "total_tokens": 3148,
+          "avg_tokens_per_turn": 393.5,
+          "total_latency_ms": 0.09131431579589844,
+          "avg_latency_ms": 0.011414289474487305,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.010876470913209216,
+          "adaptation_speed": 3,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_s2t_3": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.039488636363636365,
+          "routing_accuracy": 0.625,
+          "total_tokens": 2171,
+          "avg_tokens_per_turn": 271.375,
+          "total_latency_ms": 0.052928924560546875,
+          "avg_latency_ms": 0.006616115570068359,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.01818914618315816,
+          "adaptation_speed": 3,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_s2t_4": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 3,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.02277327935222672,
+          "routing_accuracy": 0.375,
+          "total_tokens": 2149,
+          "avg_tokens_per_turn": 268.625,
+          "total_latency_ms": 0.09846687316894531,
+          "avg_latency_ms": 0.012308359146118164,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.010597151862367017,
+          "adaptation_speed": 5,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_s2t_5": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 3,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03125000000000001,
+          "routing_accuracy": 0.375,
+          "total_tokens": 3272,
+          "avg_tokens_per_turn": 409.0,
+          "total_latency_ms": 0.08392333984375,
+          "avg_latency_ms": 0.01049041748046875,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.00955073349633252,
+          "adaptation_speed": 5,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_s2t_6": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.025987525987525985,
+          "routing_accuracy": 0.625,
+          "total_tokens": 3832,
+          "avg_tokens_per_turn": 479.0,
+          "total_latency_ms": 0.08797645568847656,
+          "avg_latency_ms": 0.01099705696105957,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.006781713462298013,
+          "adaptation_speed": 3,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_s2t_7": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03125,
+          "routing_accuracy": 0.5,
+          "total_tokens": 3152,
+          "avg_tokens_per_turn": 394.0,
+          "total_latency_ms": 0.08153915405273438,
+          "avg_latency_ms": 0.010192394256591797,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.009914340101522841,
+          "adaptation_speed": 4,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_s2t_8": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.030594405594405592,
+          "routing_accuracy": 0.625,
+          "total_tokens": 2981,
+          "avg_tokens_per_turn": 372.625,
+          "total_latency_ms": 0.062465667724609375,
+          "avg_latency_ms": 0.007808208465576172,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.010263135053473866,
+          "adaptation_speed": 3,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_s2t_9": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.01923076923076923,
+          "routing_accuracy": 0.625,
+          "total_tokens": 2123,
+          "avg_tokens_per_turn": 265.375,
+          "total_latency_ms": 0.04839897155761719,
+          "avg_latency_ms": 0.0060498714447021484,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.009058299213739626,
+          "adaptation_speed": 3,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_0": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03176930596285435,
+          "routing_accuracy": 0.375,
+          "total_tokens": 2142,
+          "avg_tokens_per_turn": 267.75,
+          "total_latency_ms": 0.06556510925292969,
+          "avg_latency_ms": 0.008195638656616211,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.014831608759502497,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_t2s_1": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.014742524916943521,
+          "routing_accuracy": 0.375,
+          "total_tokens": 2805,
+          "avg_tokens_per_turn": 350.625,
+          "total_latency_ms": 0.05412101745605469,
+          "avg_latency_ms": 0.006765127182006836,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.00525580210942728,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_t2s_2": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 3,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.01806451612903226,
+          "routing_accuracy": 0.625,
+          "total_tokens": 2300,
+          "avg_tokens_per_turn": 287.5,
+          "total_latency_ms": 0.05173683166503906,
+          "avg_latency_ms": 0.006467103958129883,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.00785413744740533,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_t2s_3": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.0,
+          "routing_accuracy": 0.375,
+          "total_tokens": 2221,
+          "avg_tokens_per_turn": 277.625,
+          "total_latency_ms": 0.04601478576660156,
+          "avg_latency_ms": 0.005751848220825195,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.0,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_t2s_4": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.0,
+          "routing_accuracy": 0.5,
+          "total_tokens": 2393,
+          "avg_tokens_per_turn": 299.125,
+          "total_latency_ms": 0.047206878662109375,
+          "avg_latency_ms": 0.005900859832763672,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.0,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_t2s_5": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 3,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.01388888888888889,
+          "routing_accuracy": 0.625,
+          "total_tokens": 2004,
+          "avg_tokens_per_turn": 250.5,
+          "total_latency_ms": 0.04172325134277344,
+          "avg_latency_ms": 0.00521540641784668,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.0069305832778886675,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_t2s_6": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.023863636363636365,
+          "routing_accuracy": 0.5,
+          "total_tokens": 3896,
+          "avg_tokens_per_turn": 487.0,
+          "total_latency_ms": 0.07891654968261719,
+          "avg_latency_ms": 0.009864568710327148,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.006125163337689005,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_t2s_7": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.01388888888888889,
+          "routing_accuracy": 0.5,
+          "total_tokens": 2560,
+          "avg_tokens_per_turn": 320.0,
+          "total_latency_ms": 0.051975250244140625,
+          "avg_latency_ms": 0.006496906280517578,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.005425347222222222,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_t2s_8": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.0,
+          "routing_accuracy": 0.5,
+          "total_tokens": 2737,
+          "avg_tokens_per_turn": 342.125,
+          "total_latency_ms": 0.05221366882324219,
+          "avg_latency_ms": 0.0065267086029052734,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.0,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_t2s_9": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.01388888888888889,
+          "routing_accuracy": 0.5,
+          "total_tokens": 2060,
+          "avg_tokens_per_turn": 257.5,
+          "total_latency_ms": 0.04458427429199219,
+          "avg_latency_ms": 0.0055730342864990234,
+          "n_tom_routes": 0,
+          "n_social_routes": 8,
+          "cost_quality_ratio": 0.00674217907227616,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    "adaptive_router": {
+      "pure_tom_0": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.06359889788099783,
+          "routing_accuracy": 0.16666666666666666,
+          "total_tokens": 1964,
+          "avg_tokens_per_turn": 327.3333333333333,
+          "total_latency_ms": 836.505651473999,
+          "avg_latency_ms": 139.41760857899985,
+          "n_tom_routes": 1,
+          "n_social_routes": 5,
+          "cost_quality_ratio": 0.03238233089663841,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_tom_1": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.011111111111111112,
+          "routing_accuracy": 1.0,
+          "total_tokens": 4563,
+          "avg_tokens_per_turn": 760.5,
+          "total_latency_ms": 91.04251861572266,
+          "avg_latency_ms": 15.173753102620443,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0024350451700879054,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_2": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.008547008547008548,
+          "routing_accuracy": 0.8333333333333334,
+          "total_tokens": 4083,
+          "avg_tokens_per_turn": 680.5,
+          "total_latency_ms": 88.64402770996094,
+          "avg_latency_ms": 14.774004618326822,
+          "n_tom_routes": 5,
+          "n_social_routes": 1,
+          "cost_quality_ratio": 0.002093315833212968,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_3": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.03335417969564311,
+          "routing_accuracy": 1.0,
+          "total_tokens": 4194,
+          "avg_tokens_per_turn": 699.0,
+          "total_latency_ms": 93.27888488769531,
+          "avg_latency_ms": 15.546480814615885,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.007952832545456154,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_4": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.027777777777777776,
+          "routing_accuracy": 1.0,
+          "total_tokens": 4470,
+          "avg_tokens_per_turn": 745.0,
+          "total_latency_ms": 90.22712707519531,
+          "avg_latency_ms": 15.037854512532553,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.006214267959234402,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_5": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.03781004234724742,
+          "routing_accuracy": 1.0,
+          "total_tokens": 5856,
+          "avg_tokens_per_turn": 976.0,
+          "total_latency_ms": 91.04776382446289,
+          "avg_latency_ms": 15.174627304077148,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.006456632914488972,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_6": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.03885003885003885,
+          "routing_accuracy": 1.0,
+          "total_tokens": 4974,
+          "avg_tokens_per_turn": 829.0,
+          "total_latency_ms": 90.1956558227539,
+          "avg_latency_ms": 15.032609303792318,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.007810623009657991,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_7": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.019047619047619046,
+          "routing_accuracy": 1.0,
+          "total_tokens": 4989,
+          "avg_tokens_per_turn": 831.5,
+          "total_latency_ms": 97.46527671813965,
+          "avg_latency_ms": 16.24421278635661,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.003817923240653246,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_8": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.042863657090743267,
+          "routing_accuracy": 1.0,
+          "total_tokens": 4707,
+          "avg_tokens_per_turn": 784.5,
+          "total_latency_ms": 90.59500694274902,
+          "avg_latency_ms": 15.099167823791504,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.00910636437024501,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_tom_9": {
+        "scenario_type": "pure_tom",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.031586021505376344,
+          "routing_accuracy": 1.0,
+          "total_tokens": 6051,
+          "avg_tokens_per_turn": 1008.5,
+          "total_latency_ms": 91.95494651794434,
+          "avg_latency_ms": 15.325824419657389,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.00521996719639338,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_0": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.05773420479302832,
+          "routing_accuracy": 0.5,
+          "total_tokens": 3857,
+          "avg_tokens_per_turn": 642.8333333333334,
+          "total_latency_ms": 88.2406234741211,
+          "avg_latency_ms": 14.706770579020182,
+          "n_tom_routes": 3,
+          "n_social_routes": 3,
+          "cost_quality_ratio": 0.014968681564176385,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_social_1": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.11495875885430334,
+          "routing_accuracy": 0.0,
+          "total_tokens": 3588,
+          "avg_tokens_per_turn": 598.0,
+          "total_latency_ms": 90.34848213195801,
+          "avg_latency_ms": 15.058080355326334,
+          "n_tom_routes": 6,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.03203978786351821,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_social_2": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.030012771392081736,
+          "routing_accuracy": 0.5,
+          "total_tokens": 2779,
+          "avg_tokens_per_turn": 463.1666666666667,
+          "total_latency_ms": 89.62678909301758,
+          "avg_latency_ms": 14.937798182169596,
+          "n_tom_routes": 3,
+          "n_social_routes": 3,
+          "cost_quality_ratio": 0.01079984576901106,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "pure_social_3": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.0,
+          "routing_accuracy": 1.0,
+          "total_tokens": 1512,
+          "avg_tokens_per_turn": 252.0,
+          "total_latency_ms": 91.77708625793457,
+          "avg_latency_ms": 15.296181042989096,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.0,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_4": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.0,
+          "routing_accuracy": 1.0,
+          "total_tokens": 1236,
+          "avg_tokens_per_turn": 206.0,
+          "total_latency_ms": 89.77532386779785,
+          "avg_latency_ms": 14.962553977966309,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.0,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_5": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.02380952380952381,
+          "routing_accuracy": 1.0,
+          "total_tokens": 1052,
+          "avg_tokens_per_turn": 175.33333333333334,
+          "total_latency_ms": 89.14542198181152,
+          "avg_latency_ms": 14.85757033030192,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.02263262719536484,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_6": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.030555555555555558,
+          "routing_accuracy": 1.0,
+          "total_tokens": 1210,
+          "avg_tokens_per_turn": 201.66666666666666,
+          "total_latency_ms": 95.74341773986816,
+          "avg_latency_ms": 15.957236289978027,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.025252525252525256,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_7": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.0,
+          "routing_accuracy": 1.0,
+          "total_tokens": 1950,
+          "avg_tokens_per_turn": 325.0,
+          "total_latency_ms": 93.23477745056152,
+          "avg_latency_ms": 15.539129575093588,
+          "n_tom_routes": 0,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.0,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "pure_social_8": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.02380952380952381,
+          "routing_accuracy": 0.8333333333333334,
+          "total_tokens": 1813,
+          "avg_tokens_per_turn": 302.1666666666667,
+          "total_latency_ms": 89.11585807800293,
+          "avg_latency_ms": 14.852643013000488,
+          "n_tom_routes": 1,
+          "n_social_routes": 5,
+          "cost_quality_ratio": 0.013132666193890684,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false
+        ]
+      },
+      "pure_social_9": {
+        "scenario_type": "pure_social",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 6,
+          "exact_match": 0.0,
+          "token_f1": 0.031159420289855078,
+          "routing_accuracy": 0.8333333333333334,
+          "total_tokens": 2784,
+          "avg_tokens_per_turn": 464.0,
+          "total_latency_ms": 93.37377548217773,
+          "avg_latency_ms": 15.562295913696289,
+          "n_tom_routes": 1,
+          "n_social_routes": 5,
+          "cost_quality_ratio": 0.011192320506413462,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "mixed_0": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.0341340348456098,
+          "routing_accuracy": 0.5,
+          "total_tokens": 10374,
+          "avg_tokens_per_turn": 1296.75,
+          "total_latency_ms": 118.93653869628906,
+          "avg_latency_ms": 14.867067337036133,
+          "n_tom_routes": 6,
+          "n_social_routes": 2,
+          "cost_quality_ratio": 0.0032903445966464043,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      "mixed_1": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.02937605872388481,
+          "routing_accuracy": 0.5,
+          "total_tokens": 6804,
+          "avg_tokens_per_turn": 850.5,
+          "total_latency_ms": 126.25288963317871,
+          "avg_latency_ms": 15.781611204147339,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.004317468948248797,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "mixed_2": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.02557544757033248,
+          "routing_accuracy": 0.625,
+          "total_tokens": 6355,
+          "avg_tokens_per_turn": 794.375,
+          "total_latency_ms": 128.94773483276367,
+          "avg_latency_ms": 16.11846685409546,
+          "n_tom_routes": 7,
+          "n_social_routes": 1,
+          "cost_quality_ratio": 0.004024460671964198,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "social",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "mixed_3": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.06593567251461989,
+          "routing_accuracy": 0.5,
+          "total_tokens": 8928,
+          "avg_tokens_per_turn": 1116.0,
+          "total_latency_ms": 129.89258766174316,
+          "avg_latency_ms": 16.236573457717896,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.00738526797878807,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "mixed_4": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03273809523809523,
+          "routing_accuracy": 0.625,
+          "total_tokens": 12479,
+          "avg_tokens_per_turn": 1559.875,
+          "total_latency_ms": 126.09243392944336,
+          "avg_latency_ms": 15.76155424118042,
+          "n_tom_routes": 7,
+          "n_social_routes": 1,
+          "cost_quality_ratio": 0.002623455023487077,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      "mixed_5": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.05002029220779221,
+          "routing_accuracy": 0.5,
+          "total_tokens": 6093,
+          "avg_tokens_per_turn": 761.625,
+          "total_latency_ms": 122.25580215454102,
+          "avg_latency_ms": 15.281975269317627,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.008209468604594159,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "mixed_6": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03703703703703704,
+          "routing_accuracy": 0.5,
+          "total_tokens": 5721,
+          "avg_tokens_per_turn": 715.125,
+          "total_latency_ms": 132.432222366333,
+          "avg_latency_ms": 16.554027795791626,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.00647387467873397,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "mixed_7": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.038815789473684206,
+          "routing_accuracy": 0.5,
+          "total_tokens": 5541,
+          "avg_tokens_per_turn": 692.625,
+          "total_latency_ms": 117.80118942260742,
+          "avg_latency_ms": 14.725148677825928,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0070051957180444335,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false
+        ]
+      },
+      "mixed_8": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.006944444444444444,
+          "routing_accuracy": 0.5,
+          "total_tokens": 2672,
+          "avg_tokens_per_turn": 334.0,
+          "total_latency_ms": 122.22409248352051,
+          "avg_latency_ms": 15.278011560440063,
+          "n_tom_routes": 2,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.0025989687292082503,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "mixed_9": {
+        "scenario_type": "mixed",
+        "transition_turn": null,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.047610590129771715,
+          "routing_accuracy": 0.625,
+          "total_tokens": 2935,
+          "avg_tokens_per_turn": 366.875,
+          "total_latency_ms": 120.89228630065918,
+          "avg_latency_ms": 15.111535787582397,
+          "n_tom_routes": 1,
+          "n_social_routes": 7,
+          "cost_quality_ratio": 0.01622166614302273,
+          "adaptation_speed": null,
+          "post_transition_accuracy": null
+        },
+        "routes": [
+          "tom",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "transition_s2t_0": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.04006165750117363,
+          "routing_accuracy": 0.375,
+          "total_tokens": 5661,
+          "avg_tokens_per_turn": 707.625,
+          "total_latency_ms": 119.77386474609375,
+          "avg_latency_ms": 14.971733093261719,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.007076781045958953,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_1": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 3,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.0,
+          "routing_accuracy": 0.625,
+          "total_tokens": 4617,
+          "avg_tokens_per_turn": 577.125,
+          "total_latency_ms": 123.67439270019531,
+          "avg_latency_ms": 15.459299087524414,
+          "n_tom_routes": 2,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.0,
+          "adaptation_speed": 3,
+          "post_transition_accuracy": 0.4
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_2": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03423913043478261,
+          "routing_accuracy": 0.875,
+          "total_tokens": 4746,
+          "avg_tokens_per_turn": 593.25,
+          "total_latency_ms": 122.89214134216309,
+          "avg_latency_ms": 15.361517667770386,
+          "n_tom_routes": 2,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.00721431319738361,
+          "adaptation_speed": 1,
+          "post_transition_accuracy": 0.6666666666666666
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_3": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.05929487179487179,
+          "routing_accuracy": 0.375,
+          "total_tokens": 6909,
+          "avg_tokens_per_turn": 863.625,
+          "total_latency_ms": 129.09960746765137,
+          "avg_latency_ms": 16.13745093345642,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.008582265421171196,
+          "adaptation_speed": 0,
+          "post_transition_accuracy": 1.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_4": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 3,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03747916170516789,
+          "routing_accuracy": 0.75,
+          "total_tokens": 4623,
+          "avg_tokens_per_turn": 577.875,
+          "total_latency_ms": 135.56718826293945,
+          "avg_latency_ms": 16.94589853286743,
+          "n_tom_routes": 3,
+          "n_social_routes": 5,
+          "cost_quality_ratio": 0.00810710830741248,
+          "adaptation_speed": 1,
+          "post_transition_accuracy": 0.6
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "tom",
+          "social",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_5": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 3,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03636363636363637,
+          "routing_accuracy": 0.75,
+          "total_tokens": 8434,
+          "avg_tokens_per_turn": 1054.25,
+          "total_latency_ms": 130.50103187561035,
+          "avg_latency_ms": 16.312628984451294,
+          "n_tom_routes": 5,
+          "n_social_routes": 3,
+          "cost_quality_ratio": 0.004311552805742989,
+          "adaptation_speed": 1,
+          "post_transition_accuracy": 0.8
+        },
+        "routes": [
+          "tom",
+          "social",
+          "social",
+          "social",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          true,
+          true,
+          false,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_6": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03142589118198874,
+          "routing_accuracy": 0.875,
+          "total_tokens": 6066,
+          "avg_tokens_per_turn": 758.25,
+          "total_latency_ms": 124.36580657958984,
+          "avg_latency_ms": 15.54572582244873,
+          "n_tom_routes": 2,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.0051806612565098486,
+          "adaptation_speed": 1,
+          "post_transition_accuracy": 0.6666666666666666
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_7": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03125,
+          "routing_accuracy": 0.625,
+          "total_tokens": 4178,
+          "avg_tokens_per_turn": 522.25,
+          "total_latency_ms": 127.20608711242676,
+          "avg_latency_ms": 15.900760889053345,
+          "n_tom_routes": 1,
+          "n_social_routes": 7,
+          "cost_quality_ratio": 0.007479655337482049,
+          "adaptation_speed": 3,
+          "post_transition_accuracy": 0.25
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          true
+        ]
+      },
+      "transition_s2t_8": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.030594405594405592,
+          "routing_accuracy": 0.875,
+          "total_tokens": 5159,
+          "avg_tokens_per_turn": 644.875,
+          "total_latency_ms": 123.78931045532227,
+          "avg_latency_ms": 15.473663806915283,
+          "n_tom_routes": 2,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.005930297653499825,
+          "adaptation_speed": 1,
+          "post_transition_accuracy": 0.6666666666666666
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      "transition_s2t_9": {
+        "scenario_type": "transition_social_to_tom",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.024786324786324785,
+          "routing_accuracy": 0.875,
+          "total_tokens": 3949,
+          "avg_tokens_per_turn": 493.625,
+          "total_latency_ms": 121.54054641723633,
+          "avg_latency_ms": 15.192568302154541,
+          "n_tom_routes": 2,
+          "n_social_routes": 6,
+          "cost_quality_ratio": 0.00627660794791714,
+          "adaptation_speed": 1,
+          "post_transition_accuracy": 0.6666666666666666
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "social",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      "transition_t2s_0": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.06113256113256113,
+          "routing_accuracy": 0.625,
+          "total_tokens": 6822,
+          "avg_tokens_per_turn": 852.75,
+          "total_latency_ms": 122.12896347045898,
+          "avg_latency_ms": 15.266120433807373,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.008961090755286005,
+          "adaptation_speed": 3,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_1": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.03614483584131327,
+          "routing_accuracy": 0.25,
+          "total_tokens": 7089,
+          "avg_tokens_per_turn": 886.125,
+          "total_latency_ms": 121.19483947753906,
+          "avg_latency_ms": 15.149354934692383,
+          "n_tom_routes": 5,
+          "n_social_routes": 3,
+          "cost_quality_ratio": 0.005098721376966183,
+          "adaptation_speed": 3,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "social",
+          "social",
+          "social",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          false,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_2": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 3,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.02663311201542086,
+          "routing_accuracy": 0.625,
+          "total_tokens": 5588,
+          "avg_tokens_per_turn": 698.5,
+          "total_latency_ms": 118.01910400390625,
+          "avg_latency_ms": 14.752388000488281,
+          "n_tom_routes": 6,
+          "n_social_routes": 2,
+          "cost_quality_ratio": 0.004766125987011607,
+          "adaptation_speed": 3,
+          "post_transition_accuracy": 0.4
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "social",
+          "social"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          true,
+          true
+        ]
+      },
+      "transition_t2s_3": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 5,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.02661064425770308,
+          "routing_accuracy": 0.625,
+          "total_tokens": 7059,
+          "avg_tokens_per_turn": 882.375,
+          "total_latency_ms": 124.23920631408691,
+          "avg_latency_ms": 15.529900789260864,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0037697470261656156,
+          "adaptation_speed": 3,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_4": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.019257703081232494,
+          "routing_accuracy": 0.5,
+          "total_tokens": 7575,
+          "avg_tokens_per_turn": 946.875,
+          "total_latency_ms": 121.97470664978027,
+          "avg_latency_ms": 15.246838331222534,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0025422710338260717,
+          "adaptation_speed": 4,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_5": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 3,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.024521531100478465,
+          "routing_accuracy": 0.375,
+          "total_tokens": 6408,
+          "avg_tokens_per_turn": 801.0,
+          "total_latency_ms": 118.95585060119629,
+          "avg_latency_ms": 14.869481325149536,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0038267058521345917,
+          "adaptation_speed": 5,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_6": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.037711952026468154,
+          "routing_accuracy": 0.5,
+          "total_tokens": 12084,
+          "avg_tokens_per_turn": 1510.5,
+          "total_latency_ms": 133.55612754821777,
+          "avg_latency_ms": 16.69451594352722,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0031208169502208003,
+          "adaptation_speed": 4,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_7": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.030539772727272728,
+          "routing_accuracy": 0.5,
+          "total_tokens": 8076,
+          "avg_tokens_per_turn": 1009.5,
+          "total_latency_ms": 118.00503730773926,
+          "avg_latency_ms": 14.750629663467407,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0037815468954027647,
+          "adaptation_speed": 4,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_8": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.014705882352941176,
+          "routing_accuracy": 0.5,
+          "total_tokens": 8607,
+          "avg_tokens_per_turn": 1075.875,
+          "total_latency_ms": 120.22638320922852,
+          "avg_latency_ms": 15.028297901153564,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.0017085956027583567,
+          "adaptation_speed": 4,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "transition_t2s_9": {
+        "scenario_type": "transition_tom_to_social",
+        "transition_turn": 4,
+        "metrics": {
+          "n_turns": 8,
+          "exact_match": 0.0,
+          "token_f1": 0.07264987334646777,
+          "routing_accuracy": 0.5,
+          "total_tokens": 6576,
+          "avg_tokens_per_turn": 822.0,
+          "total_latency_ms": 124.21083450317383,
+          "avg_latency_ms": 15.526354312896729,
+          "n_tom_routes": 8,
+          "n_social_routes": 0,
+          "cost_quality_ratio": 0.011047730131762131,
+          "adaptation_speed": 4,
+          "post_transition_accuracy": 0.0
+        },
+        "routes": [
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom",
+          "tom"
+        ],
+        "correct_routes": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    }
+  }
+}

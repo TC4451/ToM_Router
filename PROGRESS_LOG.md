@@ -325,6 +325,26 @@ The bag-of-words baseline still achieves 92.54% on the hardened data (down from 
 | `src/utils/config.py` | YAML config loading |
 | `src/utils/prompts.py` | Prompt templates for teacher labeling |
 
+### Downstream agent modules
+| Module | Purpose |
+|--------|---------|
+| `src/inference/dialogue_agent.py` | Multi-turn dialogue agent with conversation state |
+| `src/inference/policies.py` | AlwaysToM, GeneralSocial, and AdaptiveRouter policies |
+| `src/eval/metrics_dialogue.py` | Adaptation speed, cost-quality ratio, conversation metrics |
+
+### Downstream agent scripts
+| Script | Purpose |
+|--------|---------|
+| `scripts/build_dialogue_scenarios.py` | Build 50 multi-turn scenarios from test data |
+| `scripts/eval_dialogue_agent.py` | Run all policies, compare, generate figures |
+| `scripts/label_contrastive_teacher.py` | Teacher-label contrastive samples with real soft labels |
+
+### Visualization and ablation scripts
+| Script | Purpose |
+|--------|---------|
+| `scripts/generate_visualizations.py` | Generate all 20 figures |
+| `scripts/run_extended_ablations.py` | Alpha/beta sweep, temperature sweep, data size, contrastive ratio |
+
 ### Other files
 | File | Purpose |
 |------|---------|
@@ -334,31 +354,110 @@ The bag-of-words baseline still achieves 92.54% on the hardened data (down from 
 
 ---
 
+## Phase 9: Downstream Multi-Turn Agent Comparison — COMPLETE
+
+### What was built
+A multi-turn dialogue agent (`src/inference/dialogue_agent.py`) that maintains conversation history and routes each turn to either a ToM expert or a Social expert based on one of three reasoning policies:
+
+1. **Always-ToM**: Every turn uses the ToM expert (deep belief reasoning, expensive)
+2. **General-Social**: Every turn uses the Social expert (surface reasoning, cheap)
+3. **Adaptive Router**: The trained DeBERTa router decides per turn which expert to call
+
+### Evaluation setup
+- 50 scripted scenarios (360 total turns) covering 5 conversation types:
+  - Pure ToM, Pure Social, Mixed, Social→ToM transition, ToM→Social transition
+- Each policy runs all 50 scenarios
+- Metrics: routing accuracy, token cost, adaptation speed, cost-quality ratio
+
+### Results
+
+| Policy | Routing Accuracy | Tokens/Turn | Cost Ratio | ToM Usage |
+|--------|-----------------|-------------|------------|-----------|
+| Always-ToM | 49.5% | 934 | 1.00x | 100% |
+| General-Social | 50.5% | 296 | 0.32x | 0% |
+| **Adaptive Router** | **68.1%** | **721** | **0.77x** | **65.9%** |
+
+### Key findings
+- Adaptive router achieves 90% routing accuracy on pure ToM scenarios
+- On social→ToM transitions, adaptive router (70%) outperforms both fixed policies
+- Adaptive router saves 23% token cost vs always-ToM while making better routing decisions
+
+### Figures generated
+- `fig17_policy_routing_accuracy.png` — routing accuracy by policy and scenario type
+- `fig18_policy_cost.png` — average tokens per turn comparison
+- `fig19_adaptation_trace.png` — how the router adapts to mid-conversation shifts
+- `fig20_cost_quality_pareto.png` — cost vs quality scatter plot
+
+---
+
+## Phase 10: Extended Ablation Studies — COMPLETE
+
+### Alpha/beta distillation weight sweep
+| Alpha (hard) | Beta (soft) | Accuracy | F1 |
+|-------------|-------------|----------|----|
+| 1.0 | 0.0 | 96.41% | 96.45% |
+| 0.9 | 0.1 | 96.41% | 96.46% |
+| **0.7** | **0.3** | **96.22%** | **96.25%** |
+| 0.5 | 0.5 | 94.20% | 93.96% |
+| 0.3 | 0.7 | 63.08% | 42.30% |
+| 0.0 | 1.0 | 62.43% | 40.18% |
+
+Soft-only collapses (62%) because the teacher only agrees with ground truth 56% of the time. Hard labels are necessary as an anchor.
+
+### Temperature sweep
+| Temperature | Accuracy | Brier Score |
+|-------------|----------|-------------|
+| 0.5 | 92.08% | 0.094 |
+| 1.0 | 96.22% | 0.050 |
+| **1.5** | **96.22%** | **0.037** |
+| 2.0 | 96.41% | 0.034 |
+| 3.0 | 96.22% | 0.031 |
+| 5.0 | 96.13% | 0.031 |
+
+Higher temperature improves calibration (lower Brier) but accuracy plateaus at T=1.0–2.0.
+
+### Training data size ablation
+| Fraction | Train Samples | Accuracy |
+|----------|--------------|----------|
+| 12.5% | 1,078 | 75.1% |
+| 25% | 2,156 | 81.5% |
+| 50% | 4,312 | 91.8% |
+| 75% | 6,468 | 95.2% |
+| 100% | 8,624 | 96.2% |
+
+Model is still improving at 100% — more training data would likely help further.
+
+### Contrastive ratio ablation
+| Contrastive % | Total Samples | Accuracy |
+|--------------|--------------|----------|
+| 0% | 7,888 | 99.5% (shortcut!) |
+| 25% | 8,592 | 96.5% |
+| 50% | 9,330 | 95.4% |
+| 75% | 10,050 | 95.7% |
+| 100% | 10,782 | 96.1% |
+
+Adding just 25% contrastive pairs breaks the shortcut (99.5% → 96.5%). More pairs don't help accuracy much — the shortcut is already broken.
+
+---
+
 ## How to Reproduce
 
 ```bash
 # Full pipeline (data → teacher → student → eval)
 bash run_all.sh
 
-# Or run individual steps:
-python scripts/prepare_simpletom.py
-python scripts/prepare_kokomind.py
-python scripts/prepare_theory_of_mind.py
-python scripts/prepare_tomi_nli.py
-python scripts/prepare_social_iqa.py
-python scripts/prepare_cicero.py
-python scripts/build_router_dataset.py
-python scripts/generate_teacher_labels.py
-python scripts/train_student_router.py
-python scripts/eval_router.py
-python scripts/eval_routed_system.py
-
 # Dataset hardening
 python scripts/generate_contrastive_questions.py
-python scripts/style_normalize.py
 python scripts/build_hardened_dataset.py
+python scripts/label_contrastive_teacher.py
 
-# Ablation studies
+# Downstream agent evaluation
+python scripts/build_dialogue_scenarios.py
+python scripts/eval_dialogue_agent.py
+
+# Ablation studies and visualizations
 python scripts/run_distillation_ablation.py
 python scripts/run_hardened_ablation.py
+python scripts/run_extended_ablations.py
+python scripts/generate_visualizations.py
 ```

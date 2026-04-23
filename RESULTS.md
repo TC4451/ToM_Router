@@ -291,6 +291,58 @@ The student router matches oracle routing to within 0.3%.
 
 ---
 
+## Downstream Agent: Adaptive Routing in Multi-Turn Dialogue
+
+To demonstrate practical value, we built a multi-turn dialogue agent that uses the router online — deciding on every turn whether the user's question needs deep ToM reasoning or surface social reasoning.
+
+### Three Reasoning Policies
+
+| Policy | Strategy | When to use |
+|--------|----------|-------------|
+| **Always-ToM** | Every turn uses the ToM expert (deep belief reasoning) | Maximum quality, maximum cost |
+| **General-Social** | Every turn uses the Social expert (surface reasoning) | Minimum cost, misses ToM cases |
+| **Adaptive Router** | Trained router decides per turn which expert to call | Best cost-quality tradeoff |
+
+### Evaluation Setup
+
+We constructed **50 multi-turn dialogue scenarios** (360 total turns) from the test set:
+- 10 pure ToM conversations (6 turns each)
+- 10 pure social conversations (6 turns each)
+- 10 mixed conversations (8 turns, alternating ToM and non-ToM)
+- 10 social-to-ToM transitions (8 turns, shift mid-conversation)
+- 10 ToM-to-social transitions (8 turns, shift mid-conversation)
+
+### Results
+
+| Policy | Routing Accuracy | Tokens/Turn | Cost Ratio | ToM Usage |
+|--------|-----------------|-------------|------------|-----------|
+| Always-ToM | 49.5% | 934 | 1.00x | 100% |
+| General-Social | 50.5% | 296 | 0.32x | 0% |
+| **Adaptive Router** | **68.1%** | **721** | **0.77x** | **65.9%** |
+
+The adaptive router achieves **68.1% routing accuracy** — significantly above both fixed policies (which are at ~50% since they always pick one side). It does this at **77% of the cost** of always using the expensive ToM expert.
+
+### Breakdown by Scenario Type
+
+| Scenario | Always-ToM | General-Social | Adaptive Router |
+|----------|-----------|----------------|-----------------|
+| Pure ToM | 100.0% | 0.0% | **90.0%** |
+| Pure Social | 0.0% | 100.0% | **76.7%** |
+| Mixed | 50.0% | 50.0% | **53.8%** |
+| Social → ToM transition | 46.3% | 53.8% | **70.0%** |
+| ToM → Social transition | 51.3% | 48.8% | 50.0% |
+
+Key observations:
+- On **pure ToM** scenarios, the adaptive router achieves 90% accuracy — it correctly sends almost all belief-reasoning questions to the ToM expert
+- On **social-to-ToM transitions**, the adaptive router (70.0%) outperforms both fixed policies — it detects the shift and adapts
+- On **mixed dialogues**, the adaptive router slightly outperforms random (53.8% vs 50%) — this is the hardest case since every turn flips
+
+### Cost-Quality Tradeoff
+
+The core value proposition: the adaptive router provides **near-ToM-quality routing at a significant cost reduction**. On pure ToM scenarios, it correctly routes 90% of turns while using fewer tokens than the always-ToM policy. On mixed and transition scenarios, it avoids wasting expensive ToM reasoning on turns that don't need it.
+
+---
+
 ## What We Learned
 
 1. **Dataset shortcuts are insidious.** Our first model scored 99.75% while learning nothing about Theory of Mind. Without shortcut baselines, we would have published misleading results. Always run a source-only classifier before claiming your model "understands" something.
@@ -300,6 +352,8 @@ The student router matches oracle routing to within 0.3%.
 3. **Distillation helps when the task is hard.** On the easy original dataset, distillation was irrelevant. On the hardened dataset, it improved DeBERTa by 0.37 percentage points — a 44% error reduction. Soft teacher labels carry signal about ambiguous cases that binary labels miss.
 
 4. **Teacher-student disagreement is informative, not a bug.** The OLMo-3 teacher agreed with ground-truth labels only 56.4% of the time — many social reasoning questions genuinely sit on the boundary between ToM and non-ToM. Training on both signals lets the student learn that nuance.
+
+5. **Adaptive routing works in multi-turn dialogue.** The router generalizes from single-turn training to multi-turn conversations, achieving 68.1% routing accuracy at 77% of the cost of always using the expensive ToM expert. It adapts to mid-conversation shifts from social to ToM reasoning.
 
 ---
 
@@ -328,7 +382,22 @@ pip install -r requirements.txt
 # Run the full pipeline
 bash run_all.sh
 
-# Or see PROGRESS_LOG.md for step-by-step instructions
+# Dataset hardening
+python scripts/generate_contrastive_questions.py
+python scripts/build_hardened_dataset.py
+python scripts/label_contrastive_teacher.py
+
+# Downstream agent evaluation
+python scripts/build_dialogue_scenarios.py
+python scripts/eval_dialogue_agent.py
+
+# Ablation studies
+python scripts/run_distillation_ablation.py
+python scripts/run_hardened_ablation.py
+python scripts/run_extended_ablations.py
+
+# Generate all figures
+python scripts/generate_visualizations.py
 ```
 
-See `PROGRESS_LOG.md` for a detailed walkthrough of every experiment, including all intermediate outputs and the complete file listing.
+See `PROGRESS_LOG.md` for a detailed walkthrough of every experiment.
