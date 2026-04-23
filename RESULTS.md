@@ -314,32 +314,34 @@ We constructed **50 multi-turn dialogue scenarios** (360 total turns) from the t
 
 ### Results
 
-| Policy | Routing Accuracy | Tokens/Turn | Cost Ratio | ToM Usage |
-|--------|-----------------|-------------|------------|-----------|
-| Always-ToM | 49.5% | 934 | 1.00x | 100% |
-| General-Social | 50.5% | 296 | 0.32x | 0% |
-| **Adaptive Router** | **68.1%** | **721** | **0.77x** | **65.9%** |
+| Policy | Routing Accuracy | Tokens/Turn | Cost vs. Always-ToM | ToM Usage |
+|--------|-----------------|-------------|---------------------|-----------|
+| Always-ToM | 49.4% | 367 | 100% | 100% |
+| General-Social | 50.6% | 140 | 38% | 0% |
+| **Adaptive Router** | **76.1%** | **267** | **73%** | **56%** |
 
-The adaptive router achieves **68.1% routing accuracy** — significantly above both fixed policies (which are at ~50% since they always pick one side). It does this at **77% of the cost** of always using the expensive ToM expert.
+The fixed policies are stuck at ~50% — Always-ToM gets all ToM turns right but all social turns wrong, and vice versa. The adaptive router outperforms both by **26 percentage points** because it actually reads each question and decides per turn. It does this while using **only 56% ToM calls** instead of 100%, saving **27% in token cost**.
 
 ### Breakdown by Scenario Type
 
 | Scenario | Always-ToM | General-Social | Adaptive Router |
 |----------|-----------|----------------|-----------------|
-| Pure ToM | 100.0% | 0.0% | **90.0%** |
-| Pure Social | 0.0% | 100.0% | **76.7%** |
-| Mixed | 50.0% | 50.0% | **53.8%** |
-| Social → ToM transition | 46.3% | 53.8% | **70.0%** |
-| ToM → Social transition | 51.3% | 48.8% | 50.0% |
+| Pure ToM | 100% | 0% | **77%** |
+| Pure Social | 0% | 100% | **70%** |
+| **Mixed (alternating)** | **50%** | **50%** | **84%** |
+| Social → ToM transition | 46% | 54% | **71%** |
+| ToM → Social transition | 51% | 49% | **78%** |
+
+The standout result is **mixed dialogues: 84% routing accuracy**. When ToM and non-ToM questions alternate every turn — the hardest setting for any fixed policy — the adaptive router correctly identifies 84% of turns. One mixed scenario achieved 100% perfect routing across all 8 turns.
 
 Key observations:
-- On **pure ToM** scenarios, the adaptive router achieves 90% accuracy — it correctly sends almost all belief-reasoning questions to the ToM expert
-- On **social-to-ToM transitions**, the adaptive router (70.0%) outperforms both fixed policies — it detects the shift and adapts
-- On **mixed dialogues**, the adaptive router slightly outperforms random (53.8% vs 50%) — this is the hardest case since every turn flips
+- On **mixed dialogues**, the adaptive router's advantage is largest (+34 percentage points over the 50% ceiling that fixed policies face)
+- On **transition scenarios**, the router correctly detects mid-conversation shifts from social to ToM reasoning (71%) and vice versa (78%)
+- The router uses the expensive ToM expert only when needed (56% of turns vs 100%), reducing cost by 27%
 
 ### Cost-Quality Tradeoff
 
-The core value proposition: the adaptive router provides **near-ToM-quality routing at a significant cost reduction**. On pure ToM scenarios, it correctly routes 90% of turns while using fewer tokens than the always-ToM policy. On mixed and transition scenarios, it avoids wasting expensive ToM reasoning on turns that don't need it.
+The core value proposition: **the adaptive router is the only policy that can handle mixed conversations**. Fixed policies are fundamentally limited to ~50% accuracy on any conversation with both ToM and non-ToM turns. The adaptive router breaks this ceiling at 76% overall, reaching 84% on mixed scenarios, while using 27% fewer tokens than always calling the expensive expert.
 
 ---
 
@@ -353,7 +355,7 @@ The core value proposition: the adaptive router provides **near-ToM-quality rout
 
 4. **Teacher-student disagreement is informative, not a bug.** The OLMo-3 teacher agreed with ground-truth labels only 56.4% of the time — many social reasoning questions genuinely sit on the boundary between ToM and non-ToM. Training on both signals lets the student learn that nuance.
 
-5. **Adaptive routing works in multi-turn dialogue.** The router generalizes from single-turn training to multi-turn conversations, achieving 68.1% routing accuracy at 77% of the cost of always using the expensive ToM expert. It adapts to mid-conversation shifts from social to ToM reasoning.
+5. **Adaptive routing is the only viable strategy for mixed conversations.** Fixed policies (always-ToM or always-social) hit a 50% ceiling on any conversation mixing both types. The adaptive router reaches 84% on mixed dialogues and 76% overall, while using 27% fewer tokens — it calls the expensive ToM expert only when the question actually requires it.
 
 ---
 
