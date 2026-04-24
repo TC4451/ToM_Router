@@ -285,17 +285,19 @@ Putting all results together across both datasets and all conditions:
 
 ## Routed System Performance
 
-Using the trained router to direct questions to specialized experts:
+Routing strategies on the held-out test set. The student-router rows use the v2-hardened test set (1,086 samples); the legacy original-dataset eval (792 samples) showed 99.75% but was inflated by the source shortcut.
 
-| Routing Strategy | Routing Accuracy | ToM Recall | Non-ToM Recall |
-|-----------------|-----------------|------------|----------------|
-| **Student Router** | **99.7%** | **99.7%** | **99.7%** |
-| Oracle (perfect routing) | 100.0% | 100.0% | 100.0% |
-| Always use ToM expert | 50.0% | 100.0% | 0.0% |
-| Always use Social expert | 50.0% | 0.0% | 100.0% |
-| Random coin flip | 47.9% | 50.0% | 45.7% |
+| Routing Strategy | Test Set | Routing Accuracy | ToM Recall | Non-ToM Recall |
+|-----------------|---------|-----------------|------------|----------------|
+| **Student Router (DeBERTa, distilled)** | Hardened v2 | **99.08%** | 98.9% | 99.3% |
+| **Student Router (BERT-tiny, distilled)** | Hardened v2 | **97.24%** | 97.4% | 97.1% |
+| Oracle (perfect routing) | Hardened v2 | 100.0% | 100.0% | 100.0% |
+| Always use ToM expert | Hardened v2 | 50.0% | 100.0% | 0.0% |
+| Always use Social expert | Hardened v2 | 50.0% | 0.0% | 100.0% |
+| Random coin flip | Hardened v2 | ~50.0% | 50.0% | 50.0% |
+| (legacy) Student Router on original dataset | Original | 99.75% | 99.75% | 99.75% |
 
-The student router matches oracle routing to within 0.3%.
+The deployed DeBERTa router matches oracle routing to within 1.0 pp on the hardened benchmark.
 
 ---
 
