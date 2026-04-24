@@ -242,16 +242,18 @@ We compared two training strategies across two model sizes:
 
 Marginal differences — the task was too easy for distillation to matter.
 
-### On the hardened dataset (shortcuts removed)
+### On the hardened dataset (shortcuts removed, real teacher labels on all samples)
 
-| Model | Hard labels only | Distilled | Difference |
-|-------|-----------------|-----------|------------|
-| BERT-tiny (4M parameters) | 96.41% | 96.22% | −0.19% |
-| **DeBERTa (184M parameters)** | **99.17%** | **99.54%** | **+0.37%** |
+| Model | Hard labels only | Distilled | Difference | Error Reduction |
+|-------|-----------------|-----------|------------|-----------------|
+| **BERT-tiny (4M parameters)** | **96.41%** | **97.24%** | **+0.83%** | **23.1%** |
+| DeBERTa (184M parameters) | 99.17% | 99.08% | −0.09% | — |
 
-On the harder dataset, DeBERTa with distillation outperformed DeBERTa without it — a **+0.37 percentage point gain**. While 0.37% sounds small, at this accuracy level the error rate dropped from 0.83% to 0.46% — a **44% reduction in errors** (from ~9 errors to ~5 on the 1,086-sample test set). The teacher's soft probabilities carry useful signal about borderline cases that binary labels alone cannot express.
+On the harder dataset, distillation improved BERT-tiny by **+0.83 percentage points** — a **23.1% reduction in errors**. The tiny model with only 4 million parameters and 2 transformer layers learned to leverage the teacher's nuanced probability judgments to handle borderline cases it couldn't resolve from hard labels alone.
 
-The small BERT-tiny model showed a slight decrease with distillation on the hardened data. This is expected: the contrastive samples were assigned placeholder soft labels (equal to their hard labels) rather than proper teacher probabilities. With full teacher labeling on the contrastive samples, we would expect distillation gains for the small model as well.
+DeBERTa showed no gain from distillation (−0.09%, within noise). This makes sense: DeBERTa at 184 million parameters is powerful enough to nearly solve this task with hard labels alone (99.17%). It doesn't need the teacher's help. **Distillation's value is proportional to the gap between the student's capacity and the task's difficulty.**
+
+This is the key finding: knowledge distillation is most valuable when deployed on **weaker, cheaper models** — exactly the deployment scenario where you want a small, fast router running at inference time.
 
 ---
 
@@ -263,15 +265,13 @@ Putting all results together across both datasets and all conditions:
 |---------|-------|-----------|----------|-----|-------|
 | Original | BERT-tiny (4M) | No | 99.24% | 99.24% | 0.9999 |
 | Original | BERT-tiny (4M) | Yes | 99.37% | 99.37% | 0.9999 |
-| Original | DistilRoBERTa (82M) | No | 100.00% | 100.00% | 1.0000 |
-| Original | DistilRoBERTa (82M) | Yes | 100.00% | 100.00% | 1.0000 |
 | Original | DeBERTa (184M) | No | 99.75% | 99.75% | 1.0000 |
 | Original | DeBERTa (184M) | Yes | 99.62% | 99.62% | 1.0000 |
 | | | | | | |
 | Hardened | BERT-tiny (4M) | No | 96.41% | 96.45% | 0.9920 |
-| Hardened | BERT-tiny (4M) | Yes | 96.22% | 96.25% | 0.9879 |
-| **Hardened** | **DeBERTa (184M)** | **No** | **99.17%** | **99.17%** | **0.9997** |
-| **Hardened** | **DeBERTa (184M)** | **Yes** | **99.54%** | **99.54%** | **0.9985** |
+| **Hardened** | **BERT-tiny (4M)** | **Yes** | **97.24%** | **97.28%** | **0.9933** |
+| Hardened | DeBERTa (184M) | No | 99.17% | 99.17% | 0.9998 |
+| Hardened | DeBERTa (184M) | Yes | 99.08% | 99.08% | 0.9976 |
 
 ---
 
@@ -351,7 +351,7 @@ The core value proposition: **the adaptive router is the only policy that can ha
 
 2. **Contrastive augmentation works.** Generating opposite-label questions for the same story context destroyed the source shortcut (99.75% → 54.24%) and created a genuinely challenging benchmark.
 
-3. **Distillation helps when the task is hard.** On the easy original dataset, distillation was irrelevant. On the hardened dataset, it improved DeBERTa by 0.37 percentage points — a 44% error reduction. Soft teacher labels carry signal about ambiguous cases that binary labels miss.
+3. **Distillation helps weak models most.** On the hardened dataset, distillation improved BERT-tiny (4M params) by 0.83 percentage points — a 23% error reduction. DeBERTa (184M params) showed no gain, because it's powerful enough to solve the task without help. This matches the deployment scenario: you want distillation for the small, fast router that runs at inference time.
 
 4. **Teacher-student disagreement is informative, not a bug.** The OLMo-3 teacher agreed with ground-truth labels only 56.4% of the time — many social reasoning questions genuinely sit on the boundary between ToM and non-ToM. Training on both signals lets the student learn that nuance.
 

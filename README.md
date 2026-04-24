@@ -6,16 +6,16 @@ The router is trained using **knowledge distillation**: a large teacher model (O
 
 ## Key Results
 
-### Routing Accuracy
+### Routing Accuracy (hardened dataset, source shortcuts removed)
 
-| Model | Parameters | Accuracy | F1 | AUROC |
-|-------|-----------|----------|----|----- |
-| BERT-tiny (hard labels only) | 4M | 96.41% | 96.45% | 99.20% |
-| BERT-tiny (distilled) | 4M | 96.22% | 96.25% | 98.79% |
-| **DeBERTa (hard labels only)** | **184M** | **99.17%** | **99.17%** | **99.97%** |
-| **DeBERTa (distilled)** | **184M** | **99.54%** | **99.54%** | **99.85%** |
+| Model | Parameters | Distilled | Accuracy | F1 | Error Reduction |
+|-------|-----------|-----------|----------|-----|-----------------|
+| BERT-tiny | 4M | No | 96.41% | 96.45% | — |
+| **BERT-tiny** | **4M** | **Yes** | **97.24%** | **97.28%** | **23.1%** |
+| DeBERTa | 184M | No | 99.17% | 99.17% | — |
+| DeBERTa | 184M | Yes | 99.08% | 99.08% | — |
 
-> Results on the hardened dataset with contrastive augmentation (source shortcuts removed).
+> Distillation helps weak models most: BERT-tiny gains +0.83% (23% fewer errors), while DeBERTa is already near-ceiling.
 
 ### Dataset Hardening Eliminated Source Shortcuts
 

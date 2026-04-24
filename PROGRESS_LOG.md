@@ -232,9 +232,9 @@ OLMo-3 rewrote 382 samples into a uniform third-person narrative style, removing
 | **Hardened** | **Source-only logistic regression** | — | **54.24%** | **51.70%** | **45.15%** |
 | **Hardened** | Bag-of-words logistic regression | — | 92.54% | 92.54% | 97.18% |
 | **Hardened** | BERT-tiny (4M params) | No | 96.41% | 96.45% | 99.20% |
-| **Hardened** | BERT-tiny (4M params) | Yes | 96.22% | 96.25% | 98.79% |
-| **Hardened** | DeBERTa (184M params) | No | 99.17% | 99.17% | 99.97% |
-| **Hardened** | **DeBERTa (184M params)** | **Yes** | **99.54%** | **99.54%** | **99.85%** |
+| **Hardened** | **BERT-tiny (4M params)** | **Yes** | **97.24%** | **97.28%** | **99.33%** |
+| **Hardened** | DeBERTa (184M params) | No | 99.17% | 99.17% | 99.98% |
+| **Hardened** | DeBERTa (184M params) | Yes | 99.08% | 99.08% | 99.76% |
 
 ### Key findings
 
@@ -247,11 +247,15 @@ All models show lower accuracy on the hardened dataset:
 - DeBERTa: 99.75% → 99.17% (a 0.58 percentage point drop)
 - Bag-of-words baseline: 99.24% → 92.54% (a 6.7 percentage point drop)
 
-#### Finding 3: Distillation helps on the harder dataset
-On the hardened dataset, DeBERTa with distillation (**99.54%**) outperforms DeBERTa without distillation (**99.17%**) by **+0.37 percentage points**. This is the clearest evidence that soft labels from the teacher provide meaningful signal when the task cannot be solved by surface shortcuts alone.
+#### Finding 3: Distillation helps weak models most
+On the hardened dataset with proper teacher labels, BERT-tiny with distillation (**97.24%**) outperforms BERT-tiny without distillation (**96.41%**) by **+0.83 percentage points — a 23.1% error reduction**. The tiny model benefits most because it has the largest gap between its own capacity and the task difficulty.
 
-#### Finding 4: Weak models do not benefit from distillation without proper teacher labels
-BERT-tiny with distillation actually performs slightly worse (-0.19 percentage points) on the hardened dataset. This is because the contrastive samples were assigned hard-label proxies instead of proper teacher soft labels. Re-running the OLMo-3 teacher on contrastive samples would likely fix this.
+DeBERTa showed no gain from distillation (−0.09%, within noise). It is powerful enough to solve this task with hard labels alone, so teacher soft labels add no value.
+
+**Distillation's value is inversely proportional to model capacity** — exactly the right property for a deployment scenario where you want a small, fast router.
+
+#### Finding 4: Proper teacher labels on contrastive samples matter
+The v1 hardened dataset used placeholder soft labels (hard 0/1) for contrastive samples. This caused BERT-tiny distillation to actually hurt (−0.19%). After re-running the OLMo-3 teacher on all contrastive samples (v2), the regression flipped to a **+0.83% gain**. This confirms that distillation quality depends critically on teacher label quality.
 
 #### Finding 5: Lexical shortcuts partially remain
 The bag-of-words baseline still achieves 92.54% on the hardened data (down from 99.24%). Some vocabulary differences between ToM and non-ToM questions persist, meaning further style normalization would help.

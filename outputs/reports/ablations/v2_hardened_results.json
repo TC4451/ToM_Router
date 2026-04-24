@@ -1,0 +1,38 @@
+{
+  "BERT-tiny_hard": {
+    "model": "BERT-tiny",
+    "distilled": false,
+    "accuracy": 0.9640883977900553,
+    "f1": 0.9645131938125568,
+    "auroc": 0.9920026861206923,
+    "brier": 0.0304886307567358,
+    "val_f1": 0.957079991087344
+  },
+  "BERT-tiny_distilled": {
+    "model": "BERT-tiny",
+    "distilled": true,
+    "accuracy": 0.9723756906077348,
+    "f1": 0.9727767695099818,
+    "auroc": 0.9933220055011208,
+    "brier": 0.025694744661450386,
+    "val_f1": 0.9561429393387841
+  },
+  "DeBERTa_hard": {
+    "model": "DeBERTa",
+    "distilled": false,
+    "accuracy": 0.9917127071823204,
+    "f1": 0.9917355371900827,
+    "auroc": 0.9998338132399974,
+    "brier": 0.007619903422892094,
+    "val_f1": 0.9972014706202275
+  },
+  "DeBERTa_distilled": {
+    "model": "DeBERTa",
+    "distilled": true,
+    "accuracy": 0.990791896869245,
+    "f1": 0.9907578558225508,
+    "auroc": 0.9976191202954733,
+    "brier": 0.012929345481097698,
+    "val_f1": 0.9962686437285717
+  }
+}
