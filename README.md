@@ -59,9 +59,9 @@ Built from 6 source datasets, merged into a unified schema:
 | SocialIQA | 34,934 | Non-ToM | Social commonsense QA |
 | CICERO | 22,731 | Non-ToM | Commonsense inference in dialogues |
 
-**Final dataset:** 10,782 balanced samples (5,391 ToM / 5,391 Non-ToM) including 2,922 OLMo-3-generated contrastive pairs.
+**Final dataset:** 10,782 balanced samples (5,391 ToM / 5,391 Non-ToM) including 2,855 OLMo-3-generated contrastive pairs, with teacher soft labels on every sample.
 
-Processed datasets are included in `data/processed/`. Raw data can be re-downloaded by running the preparation scripts.
+The main dataset file is `data/processed/router_dataset_hardened_v2.parquet`. See the **[Dataset Card](data/processed/DATASET_CARD.md)** for full schema, source breakdown, and usage instructions.
 
 ## Quick Start
 

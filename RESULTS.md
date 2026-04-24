@@ -8,6 +8,14 @@ But when you read *"How did the crowd feel after the team scored?"*, no hidden m
 
 We built a system that automatically makes this distinction — a **router** that classifies whether a question requires Theory of Mind reasoning, then sends it to the right specialist model for answering.
 
+### Contributions
+
+1. **A shortcut-free ToM routing dataset** — 10,782 samples from 6 benchmarks, with contrastive augmentation that eliminates the source-style shortcut found in naive multi-source datasets (source-only classifier: 99.75% → 54.24%). Every sample includes soft probability labels from an OLMo-3-7B teacher. (*See [Dataset Card](data/processed/DATASET_CARD.md)*)
+
+2. **A knowledge distillation pipeline** — An OLMo-3-7B teacher labels each sample with a ToM probability, and a 4M-parameter BERT-tiny student is distilled on both hard labels and teacher soft labels, achieving a 23% error reduction over hard-label-only training.
+
+3. **A downstream adaptive routing agent** — A multi-turn dialogue agent that uses the trained router to decide per-turn which expert to call, reaching 84% routing accuracy on mixed conversations (vs. the 50% ceiling of fixed policies) at 27% lower cost.
+
 ---
 
 ## The Approach
