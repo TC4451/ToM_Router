@@ -355,6 +355,112 @@ The core value proposition: **the adaptive router is the only policy that can ha
 
 ---
 
+## End-to-End Answer Quality: Does the Router Hurt the Answer?
+
+The dialogue-agent results above measure *which expert the router picks*. The natural follow-up is whether the picked expert produces an answer at least as good as the answer you'd have gotten by always running the heavier ToM expert. If routing trades quality for cost, the cost saving doesn't matter. We ran an end-to-end answer-quality eval to check.
+
+### Method
+
+We compared three policies that differ only in which expert sees each question:
+
+- **`routed`** — the trained DeBERTa router (threshold 0.72) decides per question. If `prob_tom ≥ 0.72`, the question goes to the ToM expert; otherwise the social expert.
+- **`always_tom`** — every question goes to the ToM expert.
+- **`always_social`** — every question goes to the social expert.
+
+All three policies share the **same** OLMo-3-7B-Instruct base model (4-bit NF4 quantization). The two experts differ only in their system prompt — the ToM-prompted expert is told to reason about hidden mental states; the social-prompted expert is told to reason from social norms and observable behavior. So the policies are isolating *the routing decision*, not differences in model capacity.
+
+**Sample.** A stratified sample of **100 ToM + 100 non-ToM examples** drawn from the v2-hardened *test* split (seed = 42). Stratification matters: we want to see both how the router handles the cases where it agrees with the gold label *and* the ~2% where it disagrees, on each side separately.
+
+**Generation protocol.**
+
+- Greedy decoding (`do_sample=False`), `max_new_tokens=80`. Greedy is critical — sampling would add variance that has nothing to do with the policy and would obscure the comparison.
+- For each sampled `(context, question)`, we generate the answer **once** under the ToM-prompted expert and **once** under the social-prompted expert (200 × 2 = 400 generations total).
+- The three policies are then constructed by *selection* from those cached generations: `routed` picks `tom_answer` or `social_answer` according to the router's decision; `always_tom` always picks `tom_answer`; `always_social` always picks `social_answer`. Every policy sees identical generations, so any difference between policies is attributable purely to the routing choice, not to generation noise.
+
+### Metrics
+
+For each (policy, sample) we compute two metrics against the gold answer.
+
+**Token F1** — the standard QA token-overlap metric. Tokenize the prediction and reference by whitespace and lowercase them. Let `P` and `R` be the resulting word *sets*. Define
+
+```
+precision = |P ∩ R| / |P|
+recall    = |P ∩ R| / |R|
+F1        = 2·precision·recall / (precision + recall)
+```
+
+(F1 is 0 if either set is empty or the intersection is empty.) This is implemented in `src/eval/metrics_qa.py:token_f1` and computed per sample, then averaged.
+
+**Exact Match (EM)** — case-insensitive, whitespace-trimmed string equality between prediction and reference. Per sample either 0 or 1; reported as the average over the slice.
+
+Token F1 is the better metric for this task because gold answers are heterogeneous: some are short labels (e.g. `entailment`, `blue_drawer`, `Elizabeth`), some are full sentences (`"Austin believes the map is in the other car, not in this one."`). EM is a sanity check.
+
+> **Important caveat about absolute F1 numbers.** Many gold answers are single tokens, while OLMo-3 generates explanatory sentences. Token F1 against a one-word reference is harsh — even a perfectly correct sentence dilutes the precision. For example, gold `entailment` vs. prediction *"Yes, this entails because Chloe never saw…"* scores ~0.07 F1 even though it's substantively correct. **Treat absolute F1 as a lower bound; the comparison between policies is what's informative**, because every policy is harmed by the same dilution effect on the same samples.
+
+### Results
+
+| Subset | Policy | n | Token F1 | Exact Match |
+|---|---|---:|---:|---:|
+| **Overall** | **`routed`** | 200 | **0.1835** | 0.0350 |
+| Overall | `always_tom` | 200 | 0.1831 | 0.0350 |
+| Overall | `always_social` | 200 | 0.1726 | 0.0350 |
+| **ToM subset** | **`routed`** | 100 | **0.1269** | 0.0000 |
+| ToM subset | `always_tom` | 100 | 0.1270 | 0.0000 |
+| ToM subset | `always_social` | 100 | 0.1049 | 0.0000 |
+| **Non-ToM subset** | **`routed`** | 100 | **0.2402** | 0.0700 |
+| Non-ToM subset | `always_tom` | 100 | 0.2392 | 0.0700 |
+| Non-ToM subset | `always_social` | 100 | 0.2402 | 0.0700 |
+
+### Headline differences
+
+| Comparison | Δ Token F1 | Δ Exact Match |
+|---|---:|---:|
+| `routed` − `always_tom` (overall) | **+0.0005** | 0.0000 |
+| `routed` − `always_tom` (ToM subset) | **−0.0001** | 0.0000 |
+| `routed` − `always_social` (ToM subset) | **+0.0220** (~+21% relative) | 0.0000 |
+
+### What this proves
+
+1. **The router does not hurt answer quality on ToM data.** On the ToM subset specifically — the cases where you'd worry routing might lose quality — the routed policy matches always-ToM to within **0.0001 F1**. By every measure the two are statistically indistinguishable on these 100 samples.
+
+2. **The router does not hurt overall answer quality vs. running the heavy expert on everything.** The routed policy is +0.0005 F1 above always-ToM overall — a tie, well within noise.
+
+3. **Routing is not a free lunch — picking the wrong expert *does* cost quality.** On the ToM subset, always-social is **−0.022 F1** behind always-ToM (0.105 vs. 0.127, ~21% relative drop). That's the quality the router preserves for you while still getting to call the cheaper social expert on the non-ToM half.
+
+4. **On this 200-sample slice the router routes correctly 98% of the time** — 96% ToM recall, 100% non-ToM recall — which is why routed and always-ToM end up indistinguishable: the router only sends 4% of ToM questions to the wrong expert, and on the other 96% it's routing them to the same expert always-ToM would have used anyway.
+
+### Per-source breakdown
+
+A few sources are worth calling out (n ≥ 10):
+
+| Source | n | `routed` F1 | `always_tom` F1 | `always_social` F1 |
+|---|---:|---:|---:|---:|
+| tomi_nli | 55 | 0.000 | 0.000 | 0.000 |
+| tomi_nli_contrastive | 26 | 0.620 | 0.623 | 0.620 |
+| social_iqa | 42 | 0.066 | 0.060 | 0.066 |
+| social_iqa_contrastive | 15 | 0.406 | 0.411 | 0.352 |
+| cicero | 26 | 0.135 | 0.132 | 0.135 |
+| cicero_contrastive | 11 | 0.421 | 0.421 | 0.344 |
+| theory_of_mind | 11 | 0.077 | 0.074 | 0.039 |
+
+The `tomi_nli` row hits 0 across all policies because the gold answer is the literal string `entailment` / `not_entailment` and the expert generates explanations — none of the three policies can score F1 against that reference. (This affects all policies equally.) The contrastive variants of those same sources score much higher because the contrastive questions are factual short-answer (e.g. *"Where was the cucumber after Isla moved it?"* → `red bottle`) rather than NLI labels, so token overlap with OLMo's natural-language answer is cleaner.
+
+The takeaway is consistent across sources: wherever there's a gap between always-ToM and always-social, the routed policy ends up on the better side of that gap.
+
+### Reproducing this eval
+
+```bash
+# Generates 200 × 2 OLMo answers (~5 min on RTX 5090, cached for re-runs)
+python scripts/eval_answer_quality.py --n-per-class 100
+```
+
+Outputs:
+- `outputs/reports/answer_quality_eval.json` — aggregated metrics
+- `outputs/reports/answer_quality_predictions.parquet` — per-sample answers from all three policies
+- `outputs/answer_quality/answer_cache.jsonl` — generation cache (gitignored)
+
+---
+
 ## What We Learned
 
 1. **Dataset shortcuts are insidious.** Our first model scored 99.75% while learning nothing about Theory of Mind. Without shortcut baselines, we would have published misleading results. Always run a source-only classifier before claiming your model "understands" something.
@@ -366,6 +472,8 @@ The core value proposition: **the adaptive router is the only policy that can ha
 4. **Teacher-student disagreement is informative, not a bug.** The OLMo-3 teacher agreed with ground-truth labels only 56.4% of the time — many social reasoning questions genuinely sit on the boundary between ToM and non-ToM. Training on both signals lets the student learn that nuance.
 
 5. **Adaptive routing is the only viable strategy for mixed conversations.** Fixed policies (always-ToM or always-social) hit a 50% ceiling on any conversation mixing both types. The adaptive router reaches 84% on mixed dialogues and 76% overall, while using 27% fewer tokens — it calls the expensive ToM expert only when the question actually requires it.
+
+6. **The cost saving doesn't come out of answer quality.** On a 200-sample stratified end-to-end test, the routed policy matches always-ToM in token F1 to within ±0.0005 (overall) and ±0.0001 (on the ToM subset). The +21% relative F1 advantage that ToM-prompted reasoning gives on ToM questions — visible as the gap between always-ToM and always-social — is preserved by the router. Routing is a Pareto improvement, not a quality/cost trade.
 
 ---
 
@@ -402,6 +510,9 @@ python scripts/label_contrastive_teacher.py
 # Downstream agent evaluation
 python scripts/build_dialogue_scenarios.py
 python scripts/eval_dialogue_agent.py
+
+# End-to-end answer quality (routed vs always-ToM vs always-social)
+python scripts/eval_answer_quality.py --n-per-class 100
 
 # Ablation studies
 python scripts/run_distillation_ablation.py
