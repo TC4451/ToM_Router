@@ -1,0 +1,216 @@
+{
+  "config": {
+    "n_total": 200,
+    "n_tom": 100,
+    "n_non_tom": 100,
+    "router_threshold": 0.7199999999999996,
+    "olmo_model": "allenai/Olmo-3-7B-Instruct",
+    "router_path": "outputs/checkpoints/v2_DeBERTa_distilled",
+    "max_new_tokens": 80,
+    "seed": 42
+  },
+  "router_diagnostics": {
+    "tom_route_count": 96,
+    "social_route_count": 104,
+    "tom_recall": 0.96,
+    "non_tom_recall": 1.0,
+    "routing_accuracy": 0.98
+  },
+  "overall": {
+    "routed": {
+      "n": 200,
+      "token_f1": 0.18354854295912584,
+      "exact_match": 0.035
+    },
+    "always_tom": {
+      "n": 200,
+      "token_f1": 0.18307808731300704,
+      "exact_match": 0.035
+    },
+    "always_social": {
+      "n": 200,
+      "token_f1": 0.17258002708814615,
+      "exact_match": 0.035
+    }
+  },
+  "tom_subset": {
+    "routed": {
+      "n": 100,
+      "token_f1": 0.1268865233845006,
+      "exact_match": 0.0
+    },
+    "always_tom": {
+      "n": 100,
+      "token_f1": 0.12695169248313654,
+      "exact_match": 0.0
+    },
+    "always_social": {
+      "n": 100,
+      "token_f1": 0.10494949164254122,
+      "exact_match": 0.0
+    }
+  },
+  "non_tom_subset": {
+    "routed": {
+      "n": 100,
+      "token_f1": 0.24021056253375112,
+      "exact_match": 0.07
+    },
+    "always_tom": {
+      "n": 100,
+      "token_f1": 0.2392044821428775,
+      "exact_match": 0.07
+    },
+    "always_social": {
+      "n": 100,
+      "token_f1": 0.24021056253375112,
+      "exact_match": 0.07
+    }
+  },
+  "per_source": {
+    "cicero": {
+      "n": 26,
+      "routed": {
+        "n": 26,
+        "token_f1": 0.13516876592113083,
+        "exact_match": 0.0
+      },
+      "always_tom": {
+        "n": 26,
+        "token_f1": 0.13208508931185617,
+        "exact_match": 0.0
+      },
+      "always_social": {
+        "n": 26,
+        "token_f1": 0.13516876592113083,
+        "exact_match": 0.0
+      }
+    },
+    "cicero_contrastive": {
+      "n": 11,
+      "routed": {
+        "n": 11,
+        "token_f1": 0.4209925578052673,
+        "exact_match": 0.0
+      },
+      "always_tom": {
+        "n": 11,
+        "token_f1": 0.4209925578052673,
+        "exact_match": 0.0
+      },
+      "always_social": {
+        "n": 11,
+        "token_f1": 0.3442636288509341,
+        "exact_match": 0.0
+      }
+    },
+    "simpletom": {
+      "n": 6,
+      "routed": {
+        "n": 6,
+        "token_f1": 0.14988490033862084,
+        "exact_match": 0.0
+      },
+      "always_tom": {
+        "n": 6,
+        "token_f1": 0.14988490033862084,
+        "exact_match": 0.0
+      },
+      "always_social": {
+        "n": 6,
+        "token_f1": 0.12851962337501824,
+        "exact_match": 0.0
+      }
+    },
+    "social_iqa": {
+      "n": 42,
+      "routed": {
+        "n": 42,
+        "token_f1": 0.06595684287926401,
+        "exact_match": 0.0
+      },
+      "always_tom": {
+        "n": 42,
+        "token_f1": 0.06030582949496281,
+        "exact_match": 0.0
+      },
+      "always_social": {
+        "n": 42,
+        "token_f1": 0.06595684287926401,
+        "exact_match": 0.0
+      }
+    },
+    "social_iqa_contrastive": {
+      "n": 15,
+      "routed": {
+        "n": 15,
+        "token_f1": 0.40551644813097987,
+        "exact_match": 0.0
+      },
+      "always_tom": {
+        "n": 15,
+        "token_f1": 0.4109446431243923,
+        "exact_match": 0.0
+      },
+      "always_social": {
+        "n": 15,
+        "token_f1": 0.35177108719551153,
+        "exact_match": 0.0
+      }
+    },
+    "theory_of_mind": {
+      "n": 11,
+      "routed": {
+        "n": 11,
+        "token_f1": 0.07700969545675183,
+        "exact_match": 0.0
+      },
+      "always_tom": {
+        "n": 11,
+        "token_f1": 0.0739338239598277,
+        "exact_match": 0.0
+      },
+      "always_social": {
+        "n": 11,
+        "token_f1": 0.03925397910360317,
+        "exact_match": 0.0
+      }
+    },
+    "tomi_nli": {
+      "n": 55,
+      "routed": {
+        "n": 55,
+        "token_f1": 0.0,
+        "exact_match": 0.0
+      },
+      "always_tom": {
+        "n": 55,
+        "token_f1": 0.0,
+        "exact_match": 0.0
+      },
+      "always_social": {
+        "n": 55,
+        "token_f1": 0.0,
+        "exact_match": 0.0
+      }
+    },
+    "tomi_nli_contrastive": {
+      "n": 26,
+      "routed": {
+        "n": 26,
+        "token_f1": 0.6203611053813483,
+        "exact_match": 0.2692307692307692
+      },
+      "always_tom": {
+        "n": 26,
+        "token_f1": 0.6226578976578977,
+        "exact_match": 0.2692307692307692
+      },
+      "always_social": {
+        "n": 26,
+        "token_f1": 0.6203611053813483,
+        "exact_match": 0.2692307692307692
+      }
+    }
+  }
+}

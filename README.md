@@ -281,6 +281,52 @@ The adaptive router is the only policy on the Pareto frontier for any conversati
 
 ---
 
+## Answer Quality: Routed vs. Non-Routed Experts
+
+The dialogue-agent results above measure *which expert the router picks*. The natural follow-up question is: when the router redirects a question away from the ToM expert, does the answer get worse? We ran an end-to-end answer-quality eval to check.
+
+### Setup
+
+- **Stratified test sample**: 100 ToM + 100 non-ToM samples drawn from the v2-hardened test split (seed = 42).
+- **Three policies**, all using the same OLMo-3-7B base model (4-bit, greedy decoding, 80 max new tokens):
+  - `routed` — router decides per question; ToM expert if `prob_tom ≥ 0.72`, social expert otherwise.
+  - `always_tom` — ToM expert on every question.
+  - `always_social` — social expert on every question.
+- **Cost trick**: each sampled question is generated *once* by each expert (200 × 2 = 400 generations total), and the three policies are constructed from those cached answers — so every policy sees the same draws.
+- **Metrics**: token F1 and exact match against the gold answer.
+
+### Results
+
+| Subset | Policy | n | Token F1 | Exact Match |
+|---|---|---:|---:|---:|
+| **Overall** | `routed` | 200 | **0.1835** | 0.0350 |
+| Overall | `always_tom` | 200 | 0.1831 | 0.0350 |
+| Overall | `always_social` | 200 | 0.1726 | 0.0350 |
+| **ToM subset** | `routed` | 100 | **0.1269** | 0.0000 |
+| ToM subset | `always_tom` | 100 | 0.1270 | 0.0000 |
+| ToM subset | `always_social` | 100 | 0.1049 | 0.0000 |
+| **Non-ToM subset** | `routed` | 100 | **0.2402** | 0.0700 |
+| Non-ToM subset | `always_tom` | 100 | 0.2392 | 0.0700 |
+| Non-ToM subset | `always_social` | 100 | 0.2402 | 0.0700 |
+
+Δ headline numbers:
+
+- **`routed − always_tom`, overall**: F1 = **+0.0005**, EM = 0.0000 — the router preserves answer quality vs. routing everything to the heavy expert.
+- **`routed − always_tom`, ToM subset**: F1 = **−0.0001**, EM = 0.0000 — *no regression on ToM-heavy data*. This is the result the user asked for.
+- **`routed − always_social`, ToM subset**: F1 = **+0.0220** (≈ +21% relative) — when a question actually needs ToM, sending it to the social expert costs you measurable quality.
+
+### What this proves
+
+1. **The router doesn't hurt ToM performance.** On the ToM subset specifically — the cases where you'd worry routing might lose quality — the routed policy matches always-ToM to within 0.0001 F1.
+2. **The router buys you the savings without paying for them in quality.** Always-ToM is the most expensive policy (every turn invokes ToM-prompted reasoning); the router uses the social expert ~52% of the time at no quality cost overall.
+3. **Always-social is a real quality regression on ToM data.** Routing isn't just a cost optimization — it preserves the +0.022 F1 (21% relative) gain that ToM-prompted reasoning provides on ToM cases. On *this* eval the router's routing accuracy was 98% (96% ToM recall, 100% non-ToM recall).
+
+> The absolute F1 numbers are low (~0.18) because the gold answers are often single tokens (e.g. `entailment`, `Elizabeth`, `blue_drawer`) while OLMo generates explanatory sentences — token F1 against a one-word reference is harsh. The same is true across all three policies, so the *comparison* is what matters: under matched generation, routed ≈ always-ToM and both > always-social on ToM cases.
+
+Reproduce: `python scripts/eval_answer_quality.py --n-per-class 100`. Outputs land in `outputs/reports/answer_quality_eval.json` and `…/answer_quality_predictions.parquet` (per-sample answers from all three policies).
+
+---
+
 ## Ablation Studies
 
 ### Distillation across model sizes (hardened dataset)

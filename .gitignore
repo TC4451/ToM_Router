@@ -44,6 +44,10 @@ outputs/style_norm/
 # Contrastive generation cache (can be regenerated)
 outputs/contrastive/contrastive_cache.jsonl
 
+# Answer-quality eval cache + raw run log (the JSON + parquet results are tracked)
+outputs/answer_quality/
+outputs/answer_quality_run.log
+
 # Jupyter notebook checkpoints
 .ipynb_checkpoints/
 
