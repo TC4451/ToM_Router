@@ -86,11 +86,22 @@ class PlaceholderSocialExpert(BaseExpert):
 class OLMoExpert(BaseExpert):
     """Expert using OLMo-3 with role-specific prompting."""
 
-    def __init__(self, model, tokenizer, role: str = "tom"):
+    def __init__(
+        self,
+        model,
+        tokenizer,
+        role: str = "tom",
+        max_new_tokens: int = 100,
+        temperature: float = 0.3,
+        do_sample: bool = True,
+    ):
         self.model = model
         self.tokenizer = tokenizer
         self.role = role
         self.name = f"{role}_expert"
+        self.max_new_tokens = max_new_tokens
+        self.temperature = temperature
+        self.do_sample = do_sample
 
         if role == "tom":
             self.system_prompt = (
@@ -117,14 +128,15 @@ class OLMoExpert(BaseExpert):
         )
 
         inputs = self.tokenizer(prompt, return_tensors="pt").to(self.model.device)
+        gen_kwargs = {
+            "max_new_tokens": self.max_new_tokens,
+            "do_sample": self.do_sample,
+            "pad_token_id": self.tokenizer.pad_token_id,
+        }
+        if self.do_sample:
+            gen_kwargs["temperature"] = self.temperature
         with torch.no_grad():
-            outputs = self.model.generate(
-                **inputs,
-                max_new_tokens=100,
-                temperature=0.3,
-                do_sample=True,
-                pad_token_id=self.tokenizer.pad_token_id,
-            )
+            outputs = self.model.generate(**inputs, **gen_kwargs)
         new_tokens = outputs[0][inputs["input_ids"].shape[1]:]
         answer = self.tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
 

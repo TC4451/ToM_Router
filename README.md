@@ -417,7 +417,12 @@ python scripts/train_student_router.py
 python scripts/eval_router.py
 python scripts/eval_routed_system.py
 
-# 6. Downstream dialogue agent
+# 6. End-to-end answer-quality eval (routed vs always-ToM vs always-social)
+#    Generates expert answers on a stratified test sample and reports
+#    token F1 / EM by policy and by ToM/non-ToM subset (~15 min on RTX 5090).
+python scripts/eval_answer_quality.py --n-per-class 100
+
+# 7. Downstream dialogue agent
 python scripts/build_dialogue_scenarios.py
 python scripts/eval_dialogue_agent.py
 
