@@ -13,7 +13,7 @@ A small, fast classifier that decides whether a social-reasoning question requir
 
 1. **A shortcut-free ToM routing dataset** — 10,782 samples from 6 benchmarks. Naive multi-source datasets have a fatal flaw: a logistic regression that knows *only the source-dataset name* hits 99.75%. Contrastive augmentation drops that to **54.24%** (near random) without hurting real signal. Every sample has a teacher soft probability. *(See [Dataset Card](data/processed/DATASET_CARD.md).)*
 
-2. **A distillation pipeline that proves where distillation actually pays off** — On the hardened dataset, distilling the 7B teacher into a 4M-parameter BERT-tiny gives **+0.83 pp accuracy / 23% fewer errors**. On a 184M DeBERTa it gives nothing — the bigger student is already at ceiling. **Distillation helps the small, deployable model — exactly the one you'd ship.**
+2. **A distillation pipeline that proves where distillation actually pays off** — On the hardened dataset, distilling the 7B teacher into a 4M-parameter BERT-tiny gives **+0.83 pp accuracy / 23% fewer errors**. On a 184M DeBERTa it gives nothing — the bigger student is already at ceiling. **Distillation helps the small, deployable model that can be shipped.**
 
 3. **An online dialogue agent that uses the router per-turn** — On 50 multi-turn conversations comparing three policies (Always-ToM / General-Social / Adaptive-Router), the adaptive policy reaches **76.1% routing accuracy overall and 84% on mixed conversations**, while the two fixed policies are stuck at the **50% ceiling** that any fixed policy faces on a mixed stream — at **27% lower token cost** than always running the ToM expert.
 
