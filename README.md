@@ -181,7 +181,6 @@ Every sample has a soft probability from OLMo-3-7B-Instruct (4-bit quantized).
 Teacher–ground-truth agreement: **56.4%** on original samples, **90.3%** on contrastive samples. The disagreement is mostly real ambiguity: many social questions sit on the boundary between ToM and non-ToM, and the teacher's soft probability captures that better than a 0/1 label.
 
 ![Teacher soft-label distribution](outputs/figures/fig4_teacher_soft_labels.png)
-![Teacher–ground-truth agreement](outputs/figures/fig5_teacher_agreement.png)
 
 ---
 
