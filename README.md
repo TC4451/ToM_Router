@@ -33,7 +33,6 @@ A small, fast classifier that decides whether a social-reasoning question requir
 Distillation helps the small model because the small model needs the help. On a saturated task, DeBERTa is already at the ceiling.
 
 ![Distillation gain by model size](outputs/figures/fig8_distillation_gain.png)
-![Error reduction from distillation](outputs/figures/fig9_error_reduction.png)
 
 ### Source-shortcut elimination
 
